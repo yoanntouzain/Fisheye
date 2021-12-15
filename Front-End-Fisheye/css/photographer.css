@@ -1,11 +1,14 @@
-#contact_modal {
-    display: none;
+:root {
+    --modal-duration: 0.8s;
 }
 
 .photograph-header {
     background-color: #FAFAFA;
     height: 300px;
     margin: 0 100px;
+    text-align: center;
+    justify-content: center;
+    display: flex;
 }
 
 .contact_button {
@@ -14,23 +17,73 @@
     color: white;
     padding: 11px;
     width: 170px;
-    height: 70px;
+    height: 56px;
     border: none;
-    background-color: #901C1C;
+    background: #901C1C;
     border-radius: 5px;
     cursor: pointer;
+    margin: auto;
 }
 
-.modal {
+.contact_button:hover, .contact_button:focus {
+    background: #DB8876;
+    color: #000000;
+    border: 1px solid #000000;
+}
+
+
+.bground {
+    display: none;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    overflow: auto;
+    background-color: #C4C4C466 ;
+}
+
+@keyframes modalclose {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+.content {
+    margin: 1.8% auto;
+    width: 100%;
+    max-width: 699px;
+    animation-name: modalopen;
+    animation-duration: var(--modal-duration);
+    background: #db8876;
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+    color: #000000;
+}
+
+@keyframes modalopen {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.modal {    
     border-radius: 5px;
     background-color: #DB8876;
-    width: 50%;
+    width: 90.1%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    padding: 35px;
-    margin: auto;
+    padding: 0% 5% 4%;
 }
 
 .modal header {
@@ -42,6 +95,7 @@
     cursor: pointer;
 }
 
+
 .modal header h2 {
     font-size: 64px;
     font-weight: normal;
@@ -49,18 +103,47 @@
 }
 
 form {
-    display: flex;
     width: 100%;
-    flex-direction: column;
-    align-items: flex-start;
 }
 
 form label {
     color: #312E2E;
-    font-size: 36px;
+    font-size: 1.9em;
+}
+.en_tete {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 4%;
 }
 
-form div {
+.en_tete h2 {
+    font-size: 4em;
+    margin: 0px;
+}
+
+.modal-close-btn {
+    margin: 24px 0px 24px 35px;
+    width: 7%;
+    height: 7%;
+    background-color: #db8876;
+    color: white;
+    border: 0px solid #db8876;
+}
+
+.modal-close-btn:focus, .modal-close-btn:hover {
+    border: 1px solid #000000;
+    background-color: #000000;
+}
+
+.en_tete img {
+    width: 100%;
+    height: 100%;
+}
+
+
+.div_form{
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -68,9 +151,17 @@ form div {
     margin-bottom: 26px;
 }
 
-form input {
-    width: 100%;
+.div_form input {
+    width: 99%;
     height: 68px;
     border: none;
     border-radius: 5px;
+    font-size: 1.5em;
+}
+
+.div_form textarea {
+    width: 99%;
+    height: 114px;
+    border-radius: 5px;
+    font-size: 1.5em;
 }

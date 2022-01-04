@@ -74,12 +74,6 @@ function photographerPage(datas) {
     return { datas, getUserPage }
 }
 
-        //pseudo code
-//
-//
-//
-//final: on veut avoir toutes les image avec un titre et un chiffre avec un like
-
 //pour les images du photographe
 function mediaFactory(media) {
     const { photographerId, title, image, likes, date, price } = media;
@@ -88,33 +82,63 @@ function mediaFactory(media) {
     function getUserCardMedia() {
         const article = document.createElement( 'article' );
         const a = document.createElement( 'a' );
-            a.setAttribute("href", "#");
+            a.setAttribute("href", "#")
             a.setAttribute("alt", "lien vers image");
             article.appendChild(a);
+        const div = document.createElement( 'div' );
+            a.appendChild(div);
+        const div0 = document.createElement('div');
+            div0.setAttribute("class", "containerImage")
+            div.appendChild(div0)
         const img = document.createElement( 'img' );
             img.setAttribute("src", picture);
             img.setAttribute("alt", " ");
-            a.appendChild(img);
-        const div = document.createElement('div')
-            div.setAttribute("class", "description")
-            article.appendChild(div)
+            div0.appendChild(img);
         const div1 = document.createElement('div')
-            div1.setAttribute("class", "titre")
+            div1.setAttribute("class", "description")
             div.appendChild(div1)
+        const div2 = document.createElement('div')
+            div2.setAttribute("class", "titre")
+            div1.appendChild(div2)
         const p = document.createElement( 'p' );
             p.textContent = title;
-            div1.appendChild(p);
-        const div2 = document.createElement('div')
-            div2.setAttribute("class", "numberLike")
-            div.appendChild(div2)
+            div2.appendChild(p);
+        const div3 = document.createElement('div')
+            div3.setAttribute("class", "numberLike")
+            div1.appendChild(div3)
         const pLike = document.createElement( 'p' );
             pLike.setAttribute("class", "likes");
             pLike.innerHTML = likes, " ";
-            div2.appendChild(pLike);
+            div3.appendChild(pLike);
         const i = document.createElement('i');
             i.setAttribute("class", "fas fa-heart");
-            pLike.appendChild(i);
+            div3.appendChild(i);
         return (article);
     };
-    return { media, getUserCardMedia }
+    //corrigé cela
+    function Price() {
+        const divLike = document.createElement('div');
+            divLike.setAttribute("class", "like-price");
+            main.appendChild(divLike)
+        const divPriceBackground = document.createElement('div');
+            divPriceBackground.setAttribute("class", "price-background");
+            divLike.appendChild(divPriceBackground);
+        const divLikePhotographer = document.createElement('div');
+            divLikePhotographer.setAttribute("class", "like-photographer");
+            divPriceBackground.appendChild(divLikePhotographer);
+        const pLikeBar = document.createElement('p');
+            pLikeBar.innerHTML = "297 081";
+            divLikePhotographer.appendChild(pLikeBar);
+        const iCoeur = document.createElement('i');
+            iCoeur.setAttribute("class", "fas fa-heart");
+            divLikePhotographer.appendChild(iCoeur);
+        const divPriceDay = document.createElement('div');
+            divPriceDay.setAttribute("class", "price-day")
+            divPriceBackground.appendChild(divPriceDay);
+        const pLikeDay = document.createElement('p');
+            pLikeDay.innerHTML = "400€" + " / " + "jour";
+            divPriceDay.appendChild(pLikeDay);
+        return (divLike);
+    };
+    return { media, getUserCardMedia, Price }
 }

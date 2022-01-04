@@ -20,9 +20,7 @@ async function displayDatas(photograph) {
     photograph.forEach((photographer) => {
         const photographerModels = photographerPage(photographer);
         const userPage = photographerModels.getUserPage();
-        console.log("bonjour");
         photographHeader.appendChild(userPage);
-        console.log("en revoir");
     });
 };
 
@@ -102,9 +100,7 @@ async function displayMedias(media) {
     media.forEach((medias) => {
         const mediasModels = mediaFactory(medias);
         const userPages = mediasModels.getUserCardMedia();
-        console.log("bonjour");
         mediasection.appendChild(userPages);
-        console.log("en revoir");
     });
 };
 

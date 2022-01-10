@@ -1,4 +1,4 @@
-async function getPhotographers() {
+/*async function getPhotographers() {
     // Penser à remplacer par les données récupérées dans le json
     const photographers = [
         {
@@ -77,4 +77,28 @@ async function init() {
     displayData(photographers);
 };
 
-init();
+init();*/
+
+class App {
+    constructor() {
+        this.$photographerSection = document.querySelector('.photographer_section')
+
+        this.photographersApi = new PhotographersApi("/data/photographers.json")
+    }
+
+    async main() {
+        const photographersData = await this.photographersApi.getPhotographers()
+        
+        photographersData
+            .map(photographers => new Photographers(photographers))
+            .forEach(photographers => {
+            const Template = new PhotographerCard(photographers)
+            this.$photographerSection.appendChild(Template.createPhotographerCard())
+        })
+
+        
+    }
+}
+
+const app = new App()
+app.main()

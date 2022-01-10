@@ -1,3 +1,4 @@
+/*
 //Mettre le code JavaScript lié à la page photographer.html
 async function getPhotograph() {
     const photograph = [
@@ -110,4 +111,27 @@ async function initial() {
     displayMedias(media);
 };
 
-initial();
+initial();*/
+
+
+class photographerApps {
+    constructor() {
+        this.$mediaSection = document.querySelector(".media-section")
+
+        this.mediaApi = new MediaApi('/data/photographers.json')
+    }
+        
+    async mains() {
+        const mediaData = await this.mediaApi.getMedia()
+
+        mediaData
+            .map(media => new Media(media))
+            .forEach(media => {
+            const Templates = new MediaCard(media)
+            this.$mediaSection.appendChild(Templates.createMediaCard())
+        })
+    }
+}
+
+const apps = new photographerApps()
+apps.mains()

@@ -1,6 +1,5 @@
-function photographerFactory(data) {
+/*function photographerFactory(data) {
     const { name, portrait, city, country, tagline, price } = data;
-    const picture = `assets/images/Sample_photos/Photographers_ID_Photos/${portrait}`;
 
     function getUserCardDOM() {
         const article = document.createElement( 'article' );
@@ -9,7 +8,7 @@ function photographerFactory(data) {
             a.setAttribute("alt", "Lien vers le photographe");
             article.appendChild(a);
         const img = document.createElement( 'img' );
-            img.setAttribute("src", picture);
+            img.setAttribute("src", portrait);
             img.setAttribute("alt", "image du profil du photographe");
             a.appendChild(img);
         const h2 = document.createElement( 'h2' );
@@ -30,9 +29,9 @@ function photographerFactory(data) {
         return (article);
     };
     return { data, getUserCardDOM }
-}
+}*/
 
-//Pour la page photographer Mimi Keel profil
+//Pour la page photographer Mimi Keel profil formulaire
 function photographerPage(datas) {
     const { name, portrait, city, country, tagline } = datas;
     const picture = `assets/images/Sample_photos/Mimi/${portrait}`;
@@ -115,7 +114,7 @@ function mediaFactory(media) {
             div3.appendChild(i);
         return (article);
     };
-    //corrigé cela
+    //corrigé cela prix en bas a droite
     function Price() {
         const divLike = document.createElement('div');
             divLike.setAttribute("class", "like-price");

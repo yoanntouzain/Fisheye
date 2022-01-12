@@ -7,7 +7,7 @@ class PhotographerCard {
         const $article = document.createElement( 'article' )
 
         const photographerCard = 
-        `<a href="photographer.html" class="photographe-lien lien" alt="Lien vers le photographe">
+        `<a href="photographer.html" id="${this._photographers.id}" class="photographe-lien lien" alt="Lien vers le photographe">
             <img 
                 src="${this._photographers.portrait}" 
                 alt="image du profil du photographe"
@@ -17,7 +17,6 @@ class PhotographerCard {
         <p class="location">${this._photographers.city}, ${this._photographers.country}</p>
         <p class="tagline">${this._photographers.tagline}</p>
         <p class="price">${this._photographers.price}€/jours</p>`
-
         $article.innerHTML = photographerCard
         return $article
     }

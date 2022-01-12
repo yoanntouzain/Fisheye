@@ -1,7 +1,33 @@
 class MediaCard {
-    constructor(media) {
+    constructor(media, photographer) {
         this._media = media
+        this._photographer = photographer
     }
+
+    //doit se retrouver dans .photograph-header
+
+    createHeaderCard() {
+        const $div0 = document.createElement('div')
+            $div0.setAttribute("class", "container-photograph")
+            
+    
+        const getUserPage =
+            `<div class="presentation">
+                <h2>${this._photographer.name}</h2>
+                <p class="location-photographer">${this._photographers.city}, ${this._photographers.country}</p>
+                <p class="tagline-photographer">${this._photographers.tagline}</p>
+            </div>
+            <div class="button">
+                <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
+            </div>
+            <div class="photo">
+                <img src="${this._photographers.portrait}" alt="image du profil du photographe"/>
+            </div>`
+    
+            $div0.innerHTML = getUserPage
+            return $div0
+    }
+    
 
     createMediaCard() {
         const $article = document.createElement( 'article' )
@@ -30,7 +56,6 @@ class MediaCard {
         return $article
     }
 }
-
 /*
 //pseudo code =
     Crée une action quand tu clique sur un photographe

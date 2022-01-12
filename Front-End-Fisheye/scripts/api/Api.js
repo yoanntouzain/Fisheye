@@ -42,7 +42,7 @@ class Apis {
         return fetch(this._url)
             .then(res => res.json())
             .then(res => res.media)
-            .catch(err => console.log('ERROR!!!', err))
+            .catch(err => console.log('ERROR Apis !!!', err))
     }
 }
 

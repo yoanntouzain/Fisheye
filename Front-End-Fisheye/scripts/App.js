@@ -17,7 +17,7 @@ class App {
             const Template = new PhotographerCard(photographers)
             this.$photographerSection.appendChild(Template.createPhotographerCard())
         })
-        pomme()
+        /*pomme()*/
 
         
     }
@@ -36,14 +36,14 @@ class App {
 const app = new App()
 app.main()
 
-function pomme() {
+/*function pomme() {
     const bonjour = document.querySelectorAll(".photographe-lien")
     bonjour.forEach((lien) => lien.addEventListener("click", banane))
     function banane() {
         const apps = new App()
         apps.mains()
     }
-}
+}*/
 
 
 /*pseudo code 

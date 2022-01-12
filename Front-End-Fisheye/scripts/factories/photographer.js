@@ -32,7 +32,7 @@
 }*/
 
 //Pour la page photographer Mimi Keel profil formulaire
-function photographerPage(datas) {
+/*function photographerPage(datas) {
     const { name, portrait, city, country, tagline } = datas;
     const picture = `assets/images/Sample_photos/Mimi/${portrait}`;
 
@@ -71,10 +71,10 @@ function photographerPage(datas) {
         return (div0);
     };
     return { datas, getUserPage }
-}
+}*/
 
 //pour les images du photographe
-function mediaFactory(media) {
+/*function mediaFactory(media) {
     const { photographerId, title, image, likes, date, price } = media;
     const picture = `assets/images/Sample_photos/Mimi/${image}`;
 
@@ -113,9 +113,9 @@ function mediaFactory(media) {
             i.setAttribute("class", "fas fa-heart");
             div3.appendChild(i);
         return (article);
-    };
+    };*/
     //corrigé cela prix en bas a droite
-    function Price() {
+    /*function Price() {
         const divLike = document.createElement('div');
             divLike.setAttribute("class", "like-price");
             main.appendChild(divLike)
@@ -139,5 +139,4 @@ function mediaFactory(media) {
             divPriceDay.appendChild(pLikeDay);
         return (divLike);
     };
-    return { media, getUserCardMedia, Price }
-}
+    return { media, Price }*/

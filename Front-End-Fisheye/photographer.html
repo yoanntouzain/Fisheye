@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <script src="https://kit.fontawesome.com/2cc0192606.js" crossorigin="anonymous"></script><!--Pour intégrer les icones-->
     <link href="css/style.css" rel="stylesheet" type="text/css" />
     <meta charset="utf-8">
     <link rel="icon" type="image/png" href="assets/favicon.png">
@@ -8,25 +9,28 @@
     <title>Fisheye - photographe </title>
   </head>
   <body>
-    <header>
-      <a href="index.html" alt="Fisheye page d'accueil">
+    <header class="header">
+      <a href="index.html" alt="Fisheye page d'accueil"  class="lien-logo">
         <img src="assets/images/logo.png" class="logo" alt="logo"/>
       </a>
     </header>
-    <main id="main"> <!--MAIN-->
-      <div class="photograph-header"> <!--BOUTON POUR OUVRIR LE MODAL-->
-        <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
-      </div> <!--BOUTON POUR OUVRIR LE MODAL-->
-      <div class="bground"> <!--BGROUND-->
+    <!--MAIN-->
+    <main id="main"> 
+      <div class="photograph-header"> 
+      </div>
+      <!--BGROUND-->
+      <div class="bground"> 
         <div class="content">
-          <div class="modal"> <!--LE MODAL-->
+          <!--LE MODAL-->
+          <div class="modal"> 
             <div class="en_tete">
               <h2>Contactez-moi Mini Keel</h2>
               <button class="modal-close-btn">
                 <img src="assets/icons/close.svg" alt="Croix permettant de fermer le modal" onclick="closeModal()" />
               </button>
             </div>
-            <form> <!--FORMULAIRE-->
+            <!--FORMULAIRE-->
+            <form> 
               <div class="div_form">
                 <label for="first">Prénom</label>
                 <input type="text" name="first" id="first">
@@ -38,11 +42,52 @@
                 <textarea name="message" id="message"></textarea>
               </div>
               <button class="contact_button">Envoyer</button>
-            </form> <!--FIN DE FORMULAIRE-->
-          </div> <!--FIN DU MODAL-->
+            </form> 
+            <!--FIN DE FORMULAIRE-->
+          </div> 
+          <!--FIN DU MODAL-->
         </div>
-      </div> <!--FIN DU BGROUND-->
+      </div> 
+      <!--FIN DU BGROUND-->
+      <!--volet trieur-->
+      <div class="sorter-form-wrapper"> 
+        <div>
+          <form action="#" method="post" class="sorter-form">
+            <label for="sorter-select" class="label-sorter">Triez par: </label>
+            <select name="sorter-select" id="sorter-select">
+              <option value="pop">Popularité</option>
+              <option class="test" value="date">Date</option>
+              <option value="title">Titre</option>
+            </select>
+          </form>
+        </div>
+      </div> <!--FIN DU volet trieur-->
+      <div class="media-section"></div>
   </main> <!--FIN DU MAIN-->
-    <script src="scripts/utils/contactForm.js"></script>
+
+  <!--API-->
+  <script src="scripts/api/Api.js"></script>
+
+  <!--FACTORIES -->
+  <script src="scripts/factories/Photographer.js"></script>
+
+  <!--MODELS-->
+  <script src="scripts/models/Photographers.js"></script>
+  <script src="scripts/models/Media.js"></script>
+
+  <!--PAGES-->
+  <script src="scripts/pages/photographer.js"></script>
+
+  <!--TEMPLATE-->
+  <script src="scripts/template/PhotographerCard.js"></script>
+  <script src="scripts/template/MediaCard.js"></script>
+
+  <!--UTILS-->
+  <script src="scripts/utils/contactForm.js"></script>
+  <script src="scripts/factories/Photographer.js"></script>
+  <script src="scripts/pages/photographer.js"></script>
+    
+  <!--APP
+  <script src="scripts/App.js"></script>-->
   </body>
 </html>

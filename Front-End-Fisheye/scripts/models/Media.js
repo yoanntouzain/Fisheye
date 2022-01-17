@@ -2,9 +2,10 @@
 class Media {
     constructor(data) {
         this._id = data.id
-        this._photographeId = data.photographeId
+        this._photographerId = data.photographerId
         this._title = data.title
         this._image = data.image
+        this._video = data.video
         this._likes = data.likes
         this._date = data.date
         this._price = data.price
@@ -14,8 +15,8 @@ class Media {
         return this._id
     }
 
-    get photographeId() {
-        return this._photographeId
+    get photographerId() {
+        return this._photographerId
     }
 
     get title() {
@@ -24,6 +25,10 @@ class Media {
     
     get image() {
         return `assets/images/Sample_photos/Mimi/${this._image}`
+    }
+
+    get video() {
+        return `assets/images/Sample_photos/Mimi/${this._video}`
     }
 
     get likes() {

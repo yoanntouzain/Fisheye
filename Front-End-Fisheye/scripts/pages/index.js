@@ -8,24 +8,16 @@ class App {
 
     async main() {
         const photographersData = await this.photographersApi.getPhotographers()
-        const cliqueSurPhotographe = await this.photographersApi.getPhotographers()
         
         photographersData
             .map(photographers => new Photographers(photographers))
             .forEach(photographers => {
             const Template = new PhotographerCard(photographers)
             this.$photographerSection.appendChild(Template.createPhotographerCard())
+            console.log(this.photographersApi.getPhotographers());
         })
-
-        cliqueSurPhotographe
-                document.getElementById('243').addEventListener("click", function() {
-                    lePetitNoir()
-            })
     }
 }
 
 const app = new App()
 app.main()
-
-
-

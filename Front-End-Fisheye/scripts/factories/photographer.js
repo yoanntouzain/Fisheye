@@ -1,6 +1,5 @@
-function photographerFactory(data) {
+/*function photographerFactory(data) {
     const { name, portrait, city, country, tagline, price } = data;
-    const picture = `assets/images/Sample_photos/Photographers_ID_Photos/${portrait}`;
 
     function getUserCardDOM() {
         const article = document.createElement( 'article' );
@@ -9,7 +8,7 @@ function photographerFactory(data) {
             a.setAttribute("alt", "Lien vers le photographe");
             article.appendChild(a);
         const img = document.createElement( 'img' );
-            img.setAttribute("src", picture);
+            img.setAttribute("src", portrait);
             img.setAttribute("alt", "image du profil du photographe");
             a.appendChild(img);
         const h2 = document.createElement( 'h2' );
@@ -30,10 +29,10 @@ function photographerFactory(data) {
         return (article);
     };
     return { data, getUserCardDOM }
-}
+}*/
 
-//Pour la page photographer Mimi Keel profil
-function photographerPage(datas) {
+//Pour la page photographer Mimi Keel profil formulaire
+/*function photographerPage(datas) {
     const { name, portrait, city, country, tagline } = datas;
     const picture = `assets/images/Sample_photos/Mimi/${portrait}`;
 
@@ -72,10 +71,10 @@ function photographerPage(datas) {
         return (div0);
     };
     return { datas, getUserPage }
-}
+}*/
 
 //pour les images du photographe
-function mediaFactory(media) {
+/*function mediaFactory(media) {
     const { photographerId, title, image, likes, date, price } = media;
     const picture = `assets/images/Sample_photos/Mimi/${image}`;
 
@@ -114,9 +113,9 @@ function mediaFactory(media) {
             i.setAttribute("class", "fas fa-heart");
             div3.appendChild(i);
         return (article);
-    };
-    //corrigé cela
-    function Price() {
+    };*/
+    //corrigé cela prix en bas a droite
+    /*function Price() {
         const divLike = document.createElement('div');
             divLike.setAttribute("class", "like-price");
             main.appendChild(divLike)
@@ -140,5 +139,4 @@ function mediaFactory(media) {
             divPriceDay.appendChild(pLikeDay);
         return (divLike);
     };
-    return { media, getUserCardMedia, Price }
-}
+    return { media, Price }*/

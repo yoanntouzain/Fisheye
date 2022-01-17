@@ -213,10 +213,13 @@ form label {
     outline: none;
     width: 100%;
     height: 56.4%;
+    & .containerMedia {
+        height: 390px;
+    }
 }
-.media-section  img {
+.media-section  img, .media-section  video {
     width: 100%;
-    height: 390px;
+    height: 100%;
     border-radius: 5px;
     object-fit: cover;
 }

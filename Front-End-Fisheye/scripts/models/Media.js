@@ -24,11 +24,11 @@ class Media {
     }
     
     get image() {
-        return `assets/images/Sample_photos/Mimi/${this._image}`
+        return `assets/images/Sample_photos/${this._image}`
     }
 
     get video() {
-        return `assets/images/Sample_photos/Mimi/${this._video}`
+        return `assets/images/Sample_photos/${this._video}`
     }
 
     get likes() {

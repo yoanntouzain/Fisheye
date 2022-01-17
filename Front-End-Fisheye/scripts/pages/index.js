@@ -14,7 +14,6 @@ class App {
             .forEach(photographers => {
             const Template = new PhotographerCard(photographers)
             this.$photographerSection.appendChild(Template.createPhotographerCard())
-            console.log(this.photographersApi.getPhotographers());
         })
     }
 }

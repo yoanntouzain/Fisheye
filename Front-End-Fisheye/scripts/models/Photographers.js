@@ -35,6 +35,6 @@ class Photographers {
     }
     
     get portrait() {
-        return `assets/images/Sample_photos/Photographers_ID_Photos/${this._portrait}`
+        return `assets/images/Sample_photos/${this._portrait}`
     }
 }

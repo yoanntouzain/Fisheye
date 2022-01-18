@@ -8,6 +8,7 @@ class Photographers {
         this._tagline = data.tagline
         this._price = data.price
         this._portrait = data.portrait
+        this._likes = data.likes
     }
 
     get name() {
@@ -36,5 +37,9 @@ class Photographers {
     
     get portrait() {
         return `assets/images/Sample_photos/${this._portrait}`
+    }
+
+    get likes() {
+        return this._likes
     }
 }

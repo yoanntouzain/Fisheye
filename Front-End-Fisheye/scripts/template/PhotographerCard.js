@@ -42,4 +42,26 @@ class PhotographerCard {
             $div0.innerHTML = getUserPage
             return $div0
     }
+
+    LikePriceDay() {
+        const $bar = document.createElement('div')
+        $bar.setAttribute("class", "like-price")
+
+        const FlagPrice =
+        `<div class="price-background">
+          <div class="like-photographer">
+            <p>
+            ${this._photographers.likes}
+            </p>
+            <i class="fas fa-heart"></i>
+          </div>
+          <div class="price-day">
+            <p>
+                ${this._photographers.price}€ / jours
+            </p>
+          </div>
+        </div>`
+        $bar.innerHTML = FlagPrice
+        return $bar
+    }
 }

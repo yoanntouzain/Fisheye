@@ -8,7 +8,7 @@ class DetailsPhotographerApps {
         this.photographersApi = new PhotographersApi("/data/photographers.json")
     }
 
-    async detailHeader() {
+    async HeaderPhotographer() {
         const idUrl = document.location.href.substring(document.location.href.lastIndexOf("?id=")+4)
         const mediaHeader = await this.photographersApi.getPhotographers()
 
@@ -22,7 +22,7 @@ class DetailsPhotographerApps {
         })
     }
 
-    async mains() {
+    async SectionPhotographersCard() {
         const idUrl = document.location.href.substring(document.location.href.lastIndexOf("?id=")+4)
         const mediaData = await this.mediaApi.getMedia()
 
@@ -40,21 +40,29 @@ class DetailsPhotographerApps {
                 }
         })
     }
+
+    async FlagLikes() {
+        const idUrl = document.location.href.substring(document.location.href.lastIndexOf("?id=")+4)
+        const FlagLikesBar = await this.photographersApi.getPhotographers()
+
+        FlagLikesBar
+        .map(photographers => new Photographers(photographers))
+        .forEach(photographers => {
+            if (idUrl == photographers._id) {
+                const Template = new PhotographerCard(photographers)
+                main.appendChild(Template.LikePriceDay())
+            }
+        })
+    }
 }
 
-const app = new DetailsPhotographerApps()
-app.detailHeader()
+const Head = new DetailsPhotographerApps()
+Head.HeaderPhotographer()
 
-const apps = new DetailsPhotographerApps()
-apps.mains()
+const Section = new DetailsPhotographerApps()
+Section.SectionPhotographersCard()
 
 
-/*
-// Pseudo code:
-1// Tu lis le ID qui se trouve dans URL
-1.1// Tu parcours le JSON pour trouver le même ID que URL
-1.2// Si tu le trouve tu affiche ses données sinon tu fais rien
-2// Une fois trouver tu parcours les données du photographe correspondant
-2.1// Quand c'est une
-// Final : tu affiche les données du photographe, pour les video tu utilise MediaCardVideo et quand ce sont des images tu utilise MediaCardImage
-*/
+
+const oui = new DetailsPhotographerApps()
+oui.FlagLikes()

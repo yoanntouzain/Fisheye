@@ -39,6 +39,7 @@ class DetailsPhotographerApps {
                         }
                 }
         })
+        bonjour()
     }
 
     async FlagLikes() {
@@ -64,5 +65,5 @@ Section.SectionPhotographersCard()
 
 
 
-const oui = new DetailsPhotographerApps()
-oui.FlagLikes()
+const Flag = new DetailsPhotographerApps()
+Flag.FlagLikes()

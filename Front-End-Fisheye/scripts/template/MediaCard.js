@@ -11,7 +11,7 @@ class Picture extends MediaCard {
         const $article = document.createElement( 'article' )
 
         const mediaCard = 
-        `<a href="#" alt="lien vers image">
+        `<a href="${this._media.image}" alt="lien vers image" class="vignette">
             <div>
                 <div class="containerMedia">
                     <img src="${this._media.image}" alt=" ">
@@ -40,7 +40,7 @@ class Movie extends MediaCard {
         const $article = document.createElement( 'article' )
 
         const mediaCard =
-        `<a href="#" alt="lien vers image">
+        `<a href="#" alt="lien vers image" class="vignette">
             <div>
                 <div class="containerMedia">
                 <video controls>

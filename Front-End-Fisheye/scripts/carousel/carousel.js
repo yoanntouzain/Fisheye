@@ -41,6 +41,7 @@ class Carousel {
             return item
         })
         this.setStyle()
+        this.closeWindow()
         this.createNavigation()
 
         //Evenement
@@ -57,7 +58,7 @@ class Carousel {
     }
 
     /**
-     * Apllique les bonnes dimensions aux éléments du carousel
+     * Applique les bonnes dimensions aux éléments du carousel
      */
     setStyle() {
         let ratio = this.item.length / this.slidesVisible
@@ -65,6 +66,27 @@ class Carousel {
         this.item.forEach(item =>
             item.style.width = ((100 / this.slidesVisible) / ratio) + "%"
         )
+    }
+
+
+
+    closeWindow() {
+        this.close = document.createElement( 'bouton' )
+        this.close.setAttribute('class', 'modal-close-btn')
+        this.close.setAttribute('alt', 'Croix permettant de fermer le diaporama des images')
+        this.close.setAttribute('onclick', 'closeModal()')
+
+        this.containerImage =
+            `<svg width="42" height="42" viewBox="0 0 42 42" xmlns="http://www.w3.org/2000/svg">
+            <path d="M42 4.23L37.77 0L21 16.77L4.23 0L0 4.23L16.77 21L0 37.77L4.23 42L21 25.23L37.77 42L42 37.77L25.23 21L42 4.23Z" fill="transparant"/>
+            </svg>`
+            
+        this.root.appendChild(this.close)
+            
+            this.close.innerHTML = this.containerImage
+
+        return this.close
+
     }
 
 
@@ -175,47 +197,13 @@ class Carousel {
 
 function bonjour() {
     let eventOnClick = document.querySelectorAll('.vignette')
-    eventOnClick.forEach(Vignette => Vignette.addEventListener("click", carousel))
+    eventOnClick.forEach(Vignette => Vignette.addEventListener("click", actionCarousel))
 }
 
-function carousel(e) {
+
+function actionCarousel(e) {
     e.preventDefault()
-    function createCarousel() {
-        const $sousContainer = document.createElement( 'div' )
-        $sousContainer.setAttribute('id', 'carousel1')
-
-        const $containerImage =
-            `<div class="item">
-                <div class="items__image">
-                    <img class="image" src="/assets/images/Sample_photos/sport_water_tunnel.jpg">
-                </div>
-            </div>
-            <div class="item">
-                <div class="items__image">
-                    <img class="image" src="/assets/images/Sample_photos/sport_water_tunnel.jpg">
-                </div>
-            </div>
-            <div class="item">
-                <div class="items__image">
-                    <img class="image" src="/assets/images/Sample_photos/sport_water_tunnel.jpg">
-                </div>
-            </div>
-            <div class="item">
-                <div class="items__image">
-                    <img class="image" src="/assets/images/Sample_photos/sport_water_tunnel.jpg">
-                </div>
-            </div>
-            <div class="item">
-                <div class="items__image">
-                    <img class="image" src="/assets/images/Sample_photos/sport_water_tunnel.jpg">
-                </div>
-            </div>`
-            main.appendChild($sousContainer)
-            $sousContainer.innerHTML = $containerImage
-
-        return $sousContainer
-    }
-    createCarousel()
+    banniere.createCarousel()
     new Carousel(document.querySelector('#carousel1')), {
         loop: true,
     }

@@ -97,6 +97,20 @@ body {
 .carousel {
     position: relative;
 }
+.carousel .modal-close-btn {
+    position: absolute;
+    top: 5%;
+    right: 11px;
+    margin: 0px;
+    width: 3.5%;
+    height: 5.8%;
+    background-color: transparent;
+    & svg {
+        fill: #901C1C;
+        width: 42px;
+        height: 42px;
+    }
+}
 
 .carousel__container {
     transition: transform 0.3s;

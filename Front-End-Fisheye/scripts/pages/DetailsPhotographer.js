@@ -63,7 +63,7 @@ Head.HeaderPhotographer()
 const Section = new DetailsPhotographerApps()
 Section.SectionPhotographersCard()
 
-
-
 const Flag = new DetailsPhotographerApps()
 Flag.FlagLikes()
+
+const banniere = new LeCarousel()

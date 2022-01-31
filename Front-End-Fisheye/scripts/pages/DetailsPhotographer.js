@@ -47,7 +47,7 @@ class DetailsPhotographerApps {
                 if (idUrl == popularite._photographerId) {
                     var popularitef = [popularite._likes]
                     console.log(popularitef)
-                    popularitepopularitef.sort(function(a,b) {
+                    popularitef.sort(function(a,b) {
                         return b - a
                     })
                     }

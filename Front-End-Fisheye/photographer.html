@@ -27,6 +27,7 @@
     <!--UTILS-->
     <script src="scripts/utils/contactForm.js" async></script>
     <script src="scripts/factories/Photographer.js" async></script>
+    
   </head>
   <body>
     <header class="header">
@@ -71,18 +72,41 @@
       <!--FIN DU BGROUND-->
       <!--volet trieur-->
       <div class="sorter-form-wrapper"> 
-        <div>
-          <form action="#" method="get" class="sorter-form">
-            <label for="sorter-select" class="label-sorter">Triez par: </label>
-            <select name="sorter-select" id="sorter-select">
-              <option value="pop">Popularité</option>
-              <option class="test" value="date">Date</option>
-              <option value="title">Titre</option>
-            </select>
-          </form>
-        </div>
       </div> <!--FIN DU volet trieur-->
       <div class="media-section"></div>
+
+
+
+      <!--bouton 1-->
+      <button onclick="filtre1()">
+        popularité
+      </button>
+
+      <!--bouton 2-->
+      <button onclick="filtre2()">
+        title
+      </button>
+      <script>
+        var title = [0]
+        function filtre2() {
+          title.sort(function compare(a,b) {
+            if(a > b) {
+              return -1
+            }
+            if(a < b) {
+            return 1
+            }
+            return 0
+          })
+          console.log("non")
+        }
+      </script>
+
+
+
+
+
+
   </main> <!--FIN DU MAIN-->
   </body>
 </html>

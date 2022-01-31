@@ -25,6 +25,7 @@ class DetailsPhotographerApps {
     async SectionPhotographersCard() {
         const idUrl = document.location.href.substring(document.location.href.lastIndexOf("?id=")+4)
         const mediaData = await this.mediaApi.getMedia()
+        const populariteData = await this.mediaApi.getMedia()
 
         mediaData
             .map(media => new Media(media))
@@ -40,6 +41,25 @@ class DetailsPhotographerApps {
                 }
         })
         bonjour()
+        populariteData
+            .map(popularite => new Media(popularite))
+            .forEach(popularite => {
+                if (idUrl == popularite._photographerId) {
+                    var popularitef = [popularite._likes]
+                    console.log(popularitef)
+                    popularitepopularitef.sort(function(a,b) {
+                        return b - a
+                    })
+                    }
+            })
+    }
+
+
+    filtre1() {
+    var popularite = [popularite]
+      popularite.sort(function(a,b) {
+        return b - a
+      })
     }
 
     async FlagLikes() {
@@ -55,6 +75,15 @@ class DetailsPhotographerApps {
             }
         })
     }
+
+
+    async filterTest() {
+        const filterMedias = await this.mediaApi.getMedia()
+
+        const media = filterMedias.map(media => new Media(media))
+        const Filter = new SorterForm(media)
+        Filter.render()
+    }
 }
 
 const Head = new DetailsPhotographerApps()
@@ -65,5 +94,11 @@ Section.SectionPhotographersCard()
 
 const Flag = new DetailsPhotographerApps()
 Flag.FlagLikes()
+
+const oui = new DetailsPhotographerApps()
+oui.filterTest()
+
+const non = new DetailsPhotographerApps()
+non.filtre1()
 
 const banniere = new LeCarousel()

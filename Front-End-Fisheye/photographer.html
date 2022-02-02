@@ -3,16 +3,15 @@
   <head>
     <script src="https://kit.fontawesome.com/2cc0192606.js" crossorigin="anonymous"></script><!--Pour intégrer les icones-->
     <link href="css/style.css" rel="stylesheet" type="text/css" />
-    <link href="css/carousel.css" rel="stylesheet" type="text/css" />
     <meta charset="utf-8">
     <link rel="icon" type="image/png" href="assets/favicon.png">
     <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
     <title>Fisheye - photographe </title>
     <!--API-->
-    <script src="scripts/api/Api.js" async></script>
+    <script src="scripts/api/Api.js"></script>
   
     <!--Carousel-->
-    <script src="scripts/carousel/carousel.js"></script>
+    <script src="scripts/carousel/carousel.js"async></script>
 
     <!--MODELS-->
     <script src="scripts/models/Photographers.js" async></script>
@@ -24,10 +23,12 @@
     <!--TEMPLATE-->
     <script src="scripts/template/PhotographerCard.js" async></script>
     <script src="scripts/template/MediaCard.js"></script>
+    <script src="scripts/template/SorterForm.js"></script>
 
     <!--UTILS-->
     <script src="scripts/utils/contactForm.js" async></script>
     <script src="scripts/factories/Photographer.js" async></script>
+    
   </head>
   <body>
     <header class="header">
@@ -72,16 +73,6 @@
       <!--FIN DU BGROUND-->
       <!--volet trieur-->
       <div class="sorter-form-wrapper"> 
-        <div>
-          <form action="#" method="get" class="sorter-form">
-            <label for="sorter-select" class="label-sorter">Triez par: </label>
-            <select name="sorter-select" id="sorter-select">
-              <option value="pop">Popularité</option>
-              <option class="test" value="date">Date</option>
-              <option value="title">Titre</option>
-            </select>
-          </form>
-        </div>
       </div> <!--FIN DU volet trieur-->
       <div class="media-section"></div>
   </main> <!--FIN DU MAIN-->

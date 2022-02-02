@@ -40,7 +40,7 @@ class Movie extends MediaCard {
         const $article = document.createElement( 'article' )
 
         const mediaCard =
-        `<a href="#" alt="lien vers image" class="vignette">
+        `<a href="#" alt="lien vers image">
             <div>
                 <div class="containerMedia">
                 <video controls>
@@ -57,5 +57,47 @@ class Movie extends MediaCard {
         </a>`
         $article.innerHTML = mediaCard
         return $article
+    }
+}
+
+
+class LeCarousel extends MediaCard {
+    constructor(media) {
+        super(media)
+    }
+    createCarousel() {
+        const $sousContainer = document.createElement( 'div' )
+        $sousContainer.setAttribute('id', 'carousel1')
+
+        const $containerImage =
+            `<div class="item">
+                <div class="items__image">
+                    <img class="image" src="/assets/images/Sample_photos/sport_water_tunnel.jpg">
+                </div>
+            </div>
+            <div class="item">
+                <div class="items__image">
+                    <img class="image" src="/assets/images/Sample_photos/sport_water_tunnel.jpg">
+                </div>
+            </div>
+            <div class="item">
+                <div class="items__image">
+                    <img class="image" src="/assets/images/Sample_photos/sport_water_tunnel.jpg">
+                </div>
+            </div>
+            <div class="item">
+                <div class="items__image">
+                    <img class="image" src="/assets/images/Sample_photos/sport_water_tunnel.jpg">
+                </div>
+            </div>
+            <div class="item">
+                <div class="items__image">
+                    <img class="image" src="/assets/images/Sample_photos/sport_water_tunnel.jpg">
+                </div>
+            </div>`
+            main.appendChild($sousContainer)
+            $sousContainer.innerHTML = $containerImage
+
+        return $sousContainer
     }
 }

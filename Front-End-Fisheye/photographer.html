@@ -75,39 +75,6 @@
       <div class="sorter-form-wrapper"> 
       </div> <!--FIN DU volet trieur-->
       <div class="media-section"></div>
-
-
-
-      <!--bouton 1-->
-      <button onclick="filtre1()">
-        popularité
-      </button>
-
-      <!--bouton 2-->
-      <button onclick="filtre2()">
-        title
-      </button>
-      <script>
-        var title = [0]
-        function filtre2() {
-          title.sort(function compare(a,b) {
-            if(a > b) {
-              return -1
-            }
-            if(a < b) {
-            return 1
-            }
-            return 0
-          })
-          console.log("non")
-        }
-      </script>
-
-
-
-
-
-
   </main> <!--FIN DU MAIN-->
   </body>
 </html>

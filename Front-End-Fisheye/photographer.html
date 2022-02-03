@@ -7,6 +7,28 @@
     <link rel="icon" type="image/png" href="assets/favicon.png">
     <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
     <title>Fisheye - photographe </title>
+    <!--API-->
+    <script src="scripts/api/Api.js"></script>
+  
+    <!--Carousel-->
+    <script src="scripts/carousel/carousel.js"async></script>
+
+    <!--MODELS-->
+    <script src="scripts/models/Photographers.js" async></script>
+    <script src="scripts/models/Media.js"></script>
+
+    <!--PAGES-->
+    <script src="scripts/pages/DetailsPhotographer.js" async></script>
+
+    <!--TEMPLATE-->
+    <script src="scripts/template/PhotographerCard.js" async></script>
+    <script src="scripts/template/MediaCard.js"></script>
+    <script src="scripts/template/SorterForm.js"></script>
+
+    <!--UTILS-->
+    <script src="scripts/utils/contactForm.js" async></script>
+    <script src="scripts/factories/Photographer.js" async></script>
+    
   </head>
   <body>
     <header class="header">
@@ -15,7 +37,7 @@
       </a>
     </header>
     <!--MAIN-->
-    <main id="main"> 
+    <main id="main">
       <div class="photograph-header">
       </div>
       <!--BGROUND-->
@@ -51,42 +73,8 @@
       <!--FIN DU BGROUND-->
       <!--volet trieur-->
       <div class="sorter-form-wrapper"> 
-        <div>
-          <form action="#" method="get" class="sorter-form">
-            <label for="sorter-select" class="label-sorter">Triez par: </label>
-            <select name="sorter-select" id="sorter-select">
-              <option value="pop">Popularité</option>
-              <option class="test" value="date">Date</option>
-              <option value="title">Titre</option>
-            </select>
-          </form>
-        </div>
       </div> <!--FIN DU volet trieur-->
       <div class="media-section"></div>
   </main> <!--FIN DU MAIN-->
-
-  <!--API-->
-  <script src="scripts/api/Api.js"></script>
-
-  <!--FACTORIES -->
-  <script src="scripts/factories/Photographer.js"></script>
-
-  <!--MODELS-->
-  <script src="scripts/models/Photographers.js"></script>
-  <script src="scripts/models/Media.js"></script>
-
-  <!--PAGES-->
-  <script src="scripts/pages/DetailsPhotographer.js"></script>
-
-  <!--TEMPLATE-->
-  <script src="scripts/template/PhotographerCard.js"></script>
-  <script src="scripts/template/MediaCard.js"></script>
-
-  <!--UTILS-->
-  <script src="scripts/utils/contactForm.js"></script>
-  <script src="scripts/factories/Photographer.js"></script>
-    
-  <!--APP
-  <script src="scripts/App.js"></script>-->
   </body>
 </html>

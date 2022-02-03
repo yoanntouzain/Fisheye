@@ -5,6 +5,7 @@
     background-color: #FAFAFA;
     height: 300px;
     margin: 0;
+    margin-bottom: 9px;
     display: flex;
     & .container-photograph {
         display: flex;
@@ -33,7 +34,7 @@
     }
 }
 .button {
-    margin: auto;
+    margin: auto 4.5%;
     & .contact_button {
         font-size: 20px;
         font-weight: bold;
@@ -182,18 +183,18 @@ form label {
 }
 
 .label-sorter {
-    font-size: 0.9em;
+    font-size: 1.12em;
     font-weight: 700;
 }
+
 #sorter-select {
     background: $background-static;
     color: $color-static;
     font-weight: 700;
+    font-size: 1.12em;
     width: 170px;
     border-radius: 5px;
-    & .test {
-        border-top: white 2px solid;
-    }
+    padding: 23px 0px 23px 20px;
 }
 
 .media-section {
@@ -223,29 +224,36 @@ form label {
     border-radius: 5px;
     object-fit: cover;
 }
-
+//////////////////
 .description {
     display: flex;
     color: $color-third-secondary;
-    justify-content: space-between;
+    justify-content: flex-end;
     font-size: 1.15em;
-    & p {
-        margin: 0;
+    & .titre {
+        justify-self: flex-start;
+        margin-right: auto;
+        & p {
+            margin: 4.5% 0 0 0;
+
+        }
     }
     & .numberLike {
         display: flex;
-        justify-content: flex-end;
         width: 15%;
+        justify-content: flex-end;
         & .likes {
             font-weight: 600;
+            margin: 4.5% 0 0 0;
         }
         & i {
-            margin-top: 5%;
+            margin-top: 11%;
             margin-left: 10%;
+            font-weight: 500;
         }
     }
 }
-
+///////////////////////
 .like-price {
     position: fixed;
     right: 36px;

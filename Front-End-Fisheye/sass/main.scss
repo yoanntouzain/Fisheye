@@ -1,12 +1,14 @@
+@import "./utils/variables";
+@import "./utils/mixins";
+
 @import "./base/base";
 @import "./base/typography";
 
-@import "./utils/variables";
-@import "./utils/mixins";
 
 
 @import "./components/buttons";
 
+@import "./layout/carousel";
 @import "./layout/header";
 @import "./layout/nav";
 @import "./layout/form";

@@ -1,9 +1,4 @@
 @charset "UTF-8";
-body {
-  font-family: "DM Sans", sans-serif;
-  margin: auto 100px;
-}
-
 /* Guide d'accessibilité */
 @keyframes modalclose {
   from {
@@ -21,6 +16,19 @@ body {
     opacity: 1;
   }
 }
+body {
+  font-family: "DM Sans", sans-serif;
+  margin: auto 100px;
+}
+
+a {
+  border: 3px solid transparent;
+}
+
+a:hover, a:focus {
+  border: 3px solid #D3573C;
+}
+
 /*body, html {
     margin: 0;
     padding: 0;
@@ -199,6 +207,7 @@ body {
   background-color: #FAFAFA;
   height: 300px;
   margin: 0;
+  margin-bottom: 9px;
   display: flex;
 }
 .photograph-header .container-photograph {
@@ -229,7 +238,7 @@ body {
 }
 
 .button {
-  margin: auto;
+  margin: auto 4.5%;
 }
 .button .contact_button {
   font-size: 20px;
@@ -377,7 +386,7 @@ form label {
 }
 
 .label-sorter {
-  font-size: 0.9em;
+  font-size: 1.12em;
   font-weight: 700;
 }
 
@@ -385,11 +394,10 @@ form label {
   background: #901C1C;
   color: white;
   font-weight: 700;
+  font-size: 1.12em;
   width: 170px;
   border-radius: 5px;
-}
-#sorter-select .test {
-  border-top: white 2px solid;
+  padding: 23px 0px 23px 20px;
 }
 
 .media-section {
@@ -425,23 +433,29 @@ form label {
 .description {
   display: flex;
   color: #901C1C;
-  justify-content: space-between;
+  justify-content: flex-end;
   font-size: 1.15em;
 }
-.description p {
-  margin: 0;
+.description .titre {
+  justify-self: flex-start;
+  margin-right: auto;
+}
+.description .titre p {
+  margin: 4.5% 0 0 0;
 }
 .description .numberLike {
   display: flex;
-  justify-content: flex-end;
   width: 15%;
+  justify-content: flex-end;
 }
 .description .numberLike .likes {
   font-weight: 600;
+  margin: 4.5% 0 0 0;
 }
 .description .numberLike i {
-  margin-top: 5%;
+  margin-top: 11%;
   margin-left: 10%;
+  font-weight: 500;
 }
 
 .like-price {

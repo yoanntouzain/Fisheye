@@ -24,7 +24,9 @@ class Picture extends MediaCard {
             </div>
             <div class="numberLike">
                 <p class="likes">${this._media.likes}</p>
-                <i class="fas fa-heart" aria-hidden="true"></i>
+                <span class="likes__btn">
+                    <i class="fas fa-heart non" aria-hidden="true"></i>
+                </span>
             </div>
         </div>`
         $article.innerHTML = mediaCard
@@ -52,7 +54,9 @@ class Movie extends MediaCard {
         <div class="description">
             <div class="numberLike">
                 <p class="likes">${this._media.likes}</p>
-                <i class="fas fa-heart" aria-hidden="true"></i>
+                <span class="likes__btn">
+                    <i class="fas fa-heart" aria-hidden="true"></i>
+                </span>
             </div>
         </div>`
         $article.innerHTML = mediaCard

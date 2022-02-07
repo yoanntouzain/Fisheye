@@ -48,6 +48,7 @@ class DetailsPhotographerApps {
                 this.$mediaSection.appendChild(Templates.createMediaCardMovie())
             }
         })
+        oui()
     }
     
     //on execute le tri par date
@@ -80,6 +81,7 @@ class DetailsPhotographerApps {
                 this.$mediaSection.appendChild(Templates.createMediaCardMovie())
             }
         })
+        oui()
     }
 
     //on execute le tri par titre
@@ -173,3 +175,28 @@ selectElem.addEventListener('change', function(){
         filtreTitle.SectionPhotographersCardTitle()
     }
 })
+
+
+ 
+function oui() {
+var test = document.querySelectorAll(".likes__btn")
+    test.forEach(btn => {
+        btn.addEventListener("click", function() {
+            var icone = document.querySelectorAll("non")
+            icone.style.fontWeight = "900"
+            console.log(icone);
+        })
+    })
+}
+            //PSEUDO CODE//
+
+//1. Crée un coeur
+    //1.1Au suvol le coeur se rempli
+//2. Rendre  le coeur cliquable
+//3. Crée une fonction qui s'éxécute lors du clique
+    //3.1 Elle doit remplir le coeur au premier clique puis le vider au second clique
+    //3.2 Elle ajoute +1 au like à coter au premier clique puis -1 au second clique
+    //3.3 Elle ajoute +1 au like du bordereau en bas au premier clique puis -1 au second clique
+//il clique dessus, le coeur se rempli et ajoute +1 au like a coté de lui + au bordeau du bas
+//final: Avoir un coeur servant de like qui se remplir au survol. Il se rempli au premier clique et ajoute +1 au like a coté + au bordereau du bas. 
+        //Au second clique se vide et -1 

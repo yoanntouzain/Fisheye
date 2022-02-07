@@ -33,7 +33,7 @@ class PhotographerCard {
                 <p class="tagline-photographer">${this._photographers.tagline}</p>
             </div>
             <div class="button">
-                <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
+                <button id="oui" class="contact_button" onclick="displayModal()">Contactez-moi</button>
             </div>
             <div class="photo">
                 <img src="${this._photographers.portrait}" alt="image du profil du photographe"/>

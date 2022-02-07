@@ -409,6 +409,8 @@ form label {
   text-align: center;
 }
 .media-section article {
+  display: flex;
+  flex-wrap: wrap;
   width: 29%;
   margin: 1%;
 }
@@ -417,10 +419,10 @@ form label {
   text-decoration: none;
   outline: none;
   width: 100%;
-  height: 56.4%;
+  height: 90.4%;
 }
 .media-section a .containerMedia {
-  height: 390px;
+  height: 300px;
 }
 
 .media-section img, .media-section video {
@@ -432,16 +434,18 @@ form label {
 
 .description {
   display: flex;
+  width: 100%;
   color: #901C1C;
   justify-content: flex-end;
   font-size: 1.15em;
+  margin-right: 1%;
+  margin-left: 0.5%;
 }
 .description .titre {
-  justify-self: flex-start;
   margin-right: auto;
 }
 .description .titre p {
-  margin: 4.5% 0 0 0;
+  margin: 2.5% 0 0 0;
 }
 .description .numberLike {
   display: flex;
@@ -450,12 +454,21 @@ form label {
 }
 .description .numberLike .likes {
   font-weight: 600;
-  margin: 4.5% 0 0 0;
+  margin: 2.5% 0 0 0;
 }
 .description .numberLike i {
-  margin-top: 11%;
-  margin-left: 10%;
+  transition: 0.3s ease;
   font-weight: 500;
+}
+
+.likes__btn {
+  margin-top: 1%;
+  margin-left: 7%;
+  font-weight: 500;
+}
+
+.likes__btn:hover i {
+  font-weight: 600;
 }
 
 .like-price {

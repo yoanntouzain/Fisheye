@@ -458,19 +458,24 @@ form label {
 }
 .description .numberLike i {
   transition: 0.3s ease;
-  font-weight: 500;
 }
 
 .likes__btn {
   margin-top: 1%;
   margin-left: 7%;
+}
+
+.fas {
   font-weight: 500;
 }
 
-.likes__btn:hover i {
-  font-weight: 600;
+/*
+.likes__btn:hover {
+    & i {
+    font-weight: 600;
+    }
 }
-
+*/
 .like-price {
   position: fixed;
   right: 36px;

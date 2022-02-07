@@ -25,7 +25,7 @@ class Picture extends MediaCard {
             <div class="numberLike">
                 <p class="likes">${this._media.likes}</p>
                 <span class="likes__btn">
-                    <i class="fas fa-heart non" aria-hidden="true"></i>
+                    <i class="fas fa-heart" aria-hidden="true"></i>
                 </span>
             </div>
         </div>`

@@ -28,7 +28,6 @@ class DetailsPhotographerApps {
     async SectionPhotographersCardPop() {
         const populariteData = await this.mediaApi.getMedia()
 
-        bonjour()
         populariteData
             .map(popularite => new Media(popularite))
             .forEach(popularite => {
@@ -39,14 +38,9 @@ class DetailsPhotographerApps {
                     })
                 }
             })
+            //tu dois utilisé une factory!!!!!!!!!!
         this.popularitef.forEach(popularite => {
-            if (popularite._video == undefined) {
-                const Templates = new Picture(popularite)
-                this.$mediaSection.appendChild(Templates.createMediaCardPicture())
-            } else if(popularite._image == undefined) {
-                const Templates = new Movie(popularite)
-                this.$mediaSection.appendChild(Templates.createMediaCardMovie())
-            }
+            factory(popularite)
         })
         oui()
     }
@@ -60,7 +54,7 @@ class DetailsPhotographerApps {
             .forEach(date => {
                 if (this.idUrl == date._photographerId) {
                     this.popularitef.push(date)
-                    this.popularitef.sort(function compare(a,b) {
+                    this.popularitef.sort(function(a,b) {
                         if(a._date > b._date) {
                             return -1
                         }
@@ -69,17 +63,10 @@ class DetailsPhotographerApps {
                         }
                         return 0
                     })
-                    console.log(date)
                 }
             })
         this.popularitef.forEach(date => {
-            if (date._video == undefined) {
-                const Templates = new Picture(date)
-                this.$mediaSection.appendChild(Templates.createMediaCardPicture())
-            } else if(date._image == undefined) {
-                const Templates = new Movie(date)
-                this.$mediaSection.appendChild(Templates.createMediaCardMovie())
-            }
+            factory(date)
         })
         oui()
     }
@@ -94,14 +81,14 @@ class DetailsPhotographerApps {
             .forEach(title => {
                 if (this.idUrl == title._photographerId) {
                     this.popularitef.push(title)
-                    this.popularitef.sort(function compare(a,b) {
+                    this.popularitef.sort(function(a,b) {
                     if(a._title > b._title) {
                     return 1
                     }
                       if(a._title < b._title) {
                     return -1
                     }
-                    if (a._title == undefined) {
+                    if (a._title === undefined) {
                         return -1
                     }
                     return 0
@@ -109,13 +96,7 @@ class DetailsPhotographerApps {
                 }
             })
         this.popularitef.forEach(title => {
-            if (title._video == undefined) {
-                const Templates = new Picture(title)
-                this.$mediaSection.appendChild(Templates.createMediaCardPicture())
-            } else if(title._image == undefined) {
-                const Templates = new Movie(title)
-                this.$mediaSection.appendChild(Templates.createMediaCardMovie())
-            }
+            factory(title)
         })
     }
 
@@ -138,6 +119,10 @@ class DetailsPhotographerApps {
         Filter.render()
     }
 }
+
+
+
+
 // Affiche mon cadre en dessous de mon header
 const Head = new DetailsPhotographerApps()
 Head.HeaderPhotographer()
@@ -145,6 +130,31 @@ Head.HeaderPhotographer()
 // Affiche mon menu déroulant
 const menu = new DetailsPhotographerApps()
 menu.filterMenu()
+
+// A partir du moment ou je change le filtre dans mon menu déroulant, je vérifie les conditions. Si la valeur de ma séléction de filtre est égal à ma value popularite, 
+// alors je crée une constante qui aura pour valeur une nouvelle instance de ma classe, puis j'executerai ma fonction
+
+const selectElem = document.getElementById("sorter-select")
+
+selectElem.addEventListener('change', function(){
+    const mediaSection = document.querySelector(".media-section")
+    const filtre = new DetailsPhotographerApps()
+    mediaSection.innerHTML = ""
+    switch (selectElem.value) {
+        case "popularite":
+            return filtre.SectionPhotographersCardPop()
+
+        case "date":
+            return filtre.SectionPhotographersCardDate()
+
+        case "title":
+            return filtre.SectionPhotographersCardTitle()
+
+        default:
+            return console.log(selectElem.value)
+    }
+})
+
 
 // Affiche ma section concernant mes images
 const filtrePop = new DetailsPhotographerApps()
@@ -156,35 +166,23 @@ Flag.FlagLikes()
 
 const banniere = new LeCarousel()
 
-// A partir du moment ou je change le filtre dans mon menu déroulant, je vérifie les conditions. Si la valeur de ma séléction de filtre est égal à ma value popularite, 
-// alors je crée une constante qui aura pour valeur une nouvelle instance de ma classe, puis j'executerai ma fonction
-
-var selectElem = document.getElementById("sorter-select")
-
-selectElem.addEventListener('change', function(){
-    var mediaSection = document.querySelector(".media-section")
-    mediaSection.innerHTML = ""
-    if (selectElem.value == "popularite") {
-        const filtrePop = new DetailsPhotographerApps()
-        filtrePop.SectionPhotographersCardPop()
-    } else if (selectElem.value == "date") {
-        const filtreDate = new DetailsPhotographerApps()
-        filtreDate.SectionPhotographersCardDate()
-    } else if (selectElem.value == "title") {
-        const filtreTitle = new DetailsPhotographerApps()
-        filtreTitle.SectionPhotographersCardTitle()
-    }
-})
-
-
- 
 function oui() {
 var test = document.querySelectorAll(".likes__btn")
     test.forEach(btn => {
         btn.addEventListener("click", function() {
-            var icone = document.querySelectorAll("non")
-            icone.style.fontWeight = "900"
-            console.log(icone);
+            var fas = document.querySelectorAll(".fas")
+            fas.forEach(icone => {
+                icone.addEventListener("click", function() {
+                if (icone == 1) {
+                    icone.style.fontWeight = 500
+                    icone = 0
+                } else {
+                    icone.style.fontWeight = 900
+                    icone = 1
+                }
+                console.log(icone)
+                })
+            })
         })
     })
 }
@@ -198,5 +196,5 @@ var test = document.querySelectorAll(".likes__btn")
     //3.2 Elle ajoute +1 au like à coter au premier clique puis -1 au second clique
     //3.3 Elle ajoute +1 au like du bordereau en bas au premier clique puis -1 au second clique
 //il clique dessus, le coeur se rempli et ajoute +1 au like a coté de lui + au bordeau du bas
-//final: Avoir un coeur servant de like qui se remplir au survol. Il se rempli au premier clique et ajoute +1 au like a coté + au bordereau du bas. 
-        //Au second clique se vide et -1 
+//final: Avoir un coeur servant de like qui se remplir au survol. Il se rempli au premier clique et ajoute +1 au like a coté + au bordereau du bas.
+        //Au second clique se vide et -1

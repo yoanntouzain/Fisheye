@@ -250,27 +250,20 @@ form label {
             font-weight: 600;
             margin: 2.5% 0 0 0;
         }
-        & i {
-            transition: 0.3s ease;
+        & .heart {
+            width: 20px;
+            fill: transparent;
+            stroke: $color-third-secondary;
+            stroke-width: 22px;
         }
     }
 }
 
 .likes__btn {
-    margin-top: 1%;
+    margin-top: 6%;
     margin-left: 7%;
 }
-.fas {
-    font-weight: 500;
-}
 
-/*
-.likes__btn:hover {
-    & i {
-    font-weight: 600;
-    }
-}
-*/
 ///////////////////////
 .like-price {
     position: fixed;
@@ -294,8 +287,11 @@ form label {
     & p {
         margin-top: 0;
     }
-    & i {
-        margin-top: 2%;
+    & .heart {
+        margin-bottom: 12%;
         margin-left: 5%;
+        width: 20px;
+        fill: black;
+        stroke-width: 13px;
     }
 }

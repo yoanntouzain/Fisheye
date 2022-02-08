@@ -1,10 +1,15 @@
 
 class DetailsPhotographerApps {
     constructor() {
-        this.popularitef = []
         this.$mediaSection = document.querySelector(".media-section")
         this.$photographHeader = document.querySelector(".photograph-header")
+
+        //Pour garder le ID concernant mes photographers
         this.idUrl = document.location.href.substring(document.location.href.lastIndexOf("?id=")+4)
+
+        //tableau pour mon filtre
+        this.popularitef = []
+
 
         //Permet de parcourir mon json suivant les données voulues
         this.mediaApi = new MediaApi('/data/photographers.json')
@@ -38,11 +43,11 @@ class DetailsPhotographerApps {
                     })
                 }
             })
-            //tu dois utilisé une factory!!!!!!!!!!
-        this.popularitef.forEach(popularite => {
-            factory(popularite)
-        })
+            this.popularitef.forEach(popularite => {
+                factory(popularite)
+            })
         oui()
+            console.log(this.popularitef)
     }
     
     //on execute le tri par date
@@ -98,6 +103,7 @@ class DetailsPhotographerApps {
         this.popularitef.forEach(title => {
             factory(title)
         })
+        oui()
     }
 
     async FlagLikes() {
@@ -113,15 +119,11 @@ class DetailsPhotographerApps {
         })
     }
 
-
     async filterMenu() {
         const Filter = new SorterForm()
         Filter.render()
     }
 }
-
-
-
 
 // Affiche mon cadre en dessous de mon header
 const Head = new DetailsPhotographerApps()
@@ -160,37 +162,18 @@ selectElem.addEventListener('change', function(){
 const filtrePop = new DetailsPhotographerApps()
 filtrePop.SectionPhotographersCardPop()
 
+
 // Affiche mon cadre en bas a droite concernant les likes et le prix/jours
 const Flag = new DetailsPhotographerApps()
 Flag.FlagLikes()
 
 const banniere = new LeCarousel()
 
-function oui() {
-var test = document.querySelectorAll(".likes__btn")
-    test.forEach(btn => {
-        btn.addEventListener("click", function() {
-            var fas = document.querySelectorAll(".fas")
-            fas.forEach(icone => {
-                icone.addEventListener("click", function() {
-                if (icone == 1) {
-                    icone.style.fontWeight = 500
-                    icone = 0
-                } else {
-                    icone.style.fontWeight = 900
-                    icone = 1
-                }
-                console.log(icone)
-                })
-            })
-        })
-    })
-}
             //PSEUDO CODE//
 
 //1. Crée un coeur
     //1.1Au suvol le coeur se rempli
-//2. Rendre  le coeur cliquable
+//2. Rendre  le coeur cliquable // 
 //3. Crée une fonction qui s'éxécute lors du clique
     //3.1 Elle doit remplir le coeur au premier clique puis le vider au second clique
     //3.2 Elle ajoute +1 au like à coter au premier clique puis -1 au second clique

@@ -484,11 +484,7 @@ form label {
   width: 50%;
   margin-top: auto;
 }
-.like-photographer p {
-  margin-top: 0;
-}
 .like-photographer .heart {
-  margin-bottom: 12%;
   margin-left: 5%;
   width: 20px;
   fill: black;

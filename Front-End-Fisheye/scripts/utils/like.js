@@ -1,27 +1,21 @@
-function oui() {
-    const svg = document.querySelectorAll(".heart")
+
+function actionLike() {
+    const svg = document.querySelectorAll(".heart")/*Mon SVG*/
     svg.forEach(icone => {
-        icone.addEventListener("click", function() {
+        icone.addEventListener("click", function(){
             if (icone.style.fill === "") {
+                let valueHTML = icone.previousElementSibling.textContent
                 icone.style.fill = "#901C1C"
                 icone.style.transition = "0.3s"
-             }else {
+                valueHTML++
+                icone.previousElementSibling.innerHTML = valueHTML
+            }else{
+                let valueHTML = icone.previousElementSibling.textContent
                 icone.style.fill = ""
                 icone.style.transition = "0.3s"
-             } 
+                valueHTML--
+                icone.previousElementSibling.innerHTML = valueHTML
+            }
         })
     })
-    function addCount() {
-        let count = 1
-            this._likes += count
-
-    }
-    function removeCount() {
-        
-    }
 }
-
-//addCount
-// 1.quand tu clique sur le coeur et qu'il est vide tu veux le remplir
-//  1.1 tu prend la valeur initial
-//  1.2 tu ajoute +1 a la valeur initial

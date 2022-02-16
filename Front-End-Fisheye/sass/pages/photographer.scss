@@ -226,7 +226,7 @@ form label {
     border-radius: 5px;
     object-fit: cover;
 }
-//////////////////
+
 .description {
     display: flex;
     width: 100%;
@@ -251,20 +251,15 @@ form label {
             margin: 2.5% 0 0 0;
         }
         & .heart {
-            width: 20px;
+            width: 22px;
             fill: transparent;
             stroke: $color-third-secondary;
             stroke-width: 22px;
+            margin-left: 7%;
         }
     }
 }
 
-.likes__btn {
-    margin-top: 6%;
-    margin-left: 7%;
-}
-
-///////////////////////
 .like-price {
     position: fixed;
     right: 36px;

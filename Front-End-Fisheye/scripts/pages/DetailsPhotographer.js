@@ -4,6 +4,8 @@ class DetailsPhotographerApps {
         this.$mediaSection = document.querySelector(".media-section")
         this.$photographHeader = document.querySelector(".photograph-header")
 
+        //Pour les likes
+
         //Pour garder le ID concernant mes photographers
         this.idUrl = document.location.href.substring(document.location.href.lastIndexOf("?id=")+4)
 
@@ -20,12 +22,12 @@ class DetailsPhotographerApps {
         const mediaHeader = await this.photographersApi.getPhotographers()
 
         mediaHeader
-            .map(photographers => new Photographers(photographers))
-            .forEach(photographers => {
-                if (this.idUrl == photographers._id) {
-                    const Template = new PhotographerCard(photographers)
-                    this.$photographHeader.appendChild(Template.createHeaderPhotographerCard())
-                }
+        .map(photographers => new Photographers(photographers))
+        .forEach(photographers => {
+            if (this.idUrl == photographers._id) {
+                const Template = new PhotographerCard(photographers)
+                this.$photographHeader.appendChild(Template.createHeaderPhotographerCard())
+            }
         })
     }
 
@@ -34,20 +36,19 @@ class DetailsPhotographerApps {
         const populariteData = await this.mediaApi.getMedia()
 
         populariteData
-            .map(popularite => new Media(popularite))
-            .forEach(popularite => {
-                if (this.idUrl == popularite._photographerId) {
-                    this.popularitef.push(popularite)
-                    this.popularitef.sort(function(a,b) {
-                        return b._likes - a._likes
-                    })
-                }
-            })
-            this.popularitef.forEach(popularite => {
-                factory(popularite)
-            })
-        oui()
-            console.log(this.popularitef)
+        .map(popularite => new Media(popularite))
+        .forEach(popularite => {
+            if (this.idUrl == popularite._photographerId) {
+                this.popularitef.push(popularite)
+                this.popularitef.sort(function(a,b) {
+                    return b._likes - a._likes
+                })
+            }
+        })
+        this.popularitef.forEach(popularite => {
+            this.$mediaSection.appendChild(factory(popularite).createMediaCard())
+        })
+        actionLike(this.popularitef)
     }
     
     //on execute le tri par date
@@ -55,25 +56,25 @@ class DetailsPhotographerApps {
         const dateData = await this.mediaApi.getMedia()
 
         dateData
-            .map(date => new Media(date))
-            .forEach(date => {
-                if (this.idUrl == date._photographerId) {
-                    this.popularitef.push(date)
-                    this.popularitef.sort(function(a,b) {
-                        if(a._date > b._date) {
-                            return -1
-                        }
-                        if(a._date < b._date) {
-                        return 1 
-                        }
-                        return 0
-                    })
-                }
-            })
-        this.popularitef.forEach(date => {
-            factory(date)
+        .map(date => new Media(date))
+        .forEach(date => {
+            if (this.idUrl == date._photographerId) {
+                this.popularitef.push(date)
+                this.popularitef.sort(function(a,b) {
+                    if(a._date > b._date) {
+                        return -1
+                    }
+                    if(a._date < b._date) {
+                    return 1
+                    }
+                    return 0
+                })
+            }
         })
-        oui()
+        this.popularitef.forEach(date => {
+            this.$mediaSection.appendChild(factory(date).createMediaCard())
+        })
+        actionLike(this.popularitef)
     }
 
     //on execute le tri par titre
@@ -82,28 +83,28 @@ class DetailsPhotographerApps {
 
         
         titleData
-            .map(title => new Media(title))
-            .forEach(title => {
-                if (this.idUrl == title._photographerId) {
-                    this.popularitef.push(title)
-                    this.popularitef.sort(function(a,b) {
-                    if(a._title > b._title) {
-                    return 1
-                    }
-                      if(a._title < b._title) {
-                    return -1
-                    }
-                    if (a._title === undefined) {
-                        return -1
-                    }
-                    return 0
-                  })
+        .map(title => new Media(title))
+        .forEach(title => {
+            if (this.idUrl == title._photographerId) {
+                this.popularitef.push(title)
+                this.popularitef.sort(function(a,b) {
+                if(a._title > b._title) {
+                return 1
                 }
-            })
-        this.popularitef.forEach(title => {
-            factory(title)
+                    if(a._title < b._title) {
+                return -1
+                }
+                if (a._title === undefined) {
+                    return -1
+                }
+                return 0
+                })
+            }
         })
-        oui()
+        this.popularitef.forEach(title => {
+            this.$mediaSection.appendChild(factory(title).createMediaCard())
+        })
+        actionLike(this.popularitef)
     }
 
     async FlagLikes() {
@@ -168,16 +169,3 @@ const Flag = new DetailsPhotographerApps()
 Flag.FlagLikes()
 
 const banniere = new LeCarousel()
-
-            //PSEUDO CODE//
-
-//1. Crée un coeur
-    //1.1Au suvol le coeur se rempli
-//2. Rendre  le coeur cliquable // 
-//3. Crée une fonction qui s'éxécute lors du clique
-    //3.1 Elle doit remplir le coeur au premier clique puis le vider au second clique
-    //3.2 Elle ajoute +1 au like à coter au premier clique puis -1 au second clique
-    //3.3 Elle ajoute +1 au like du bordereau en bas au premier clique puis -1 au second clique
-//il clique dessus, le coeur se rempli et ajoute +1 au like a coté de lui + au bordeau du bas
-//final: Avoir un coeur servant de like qui se remplir au survol. Il se rempli au premier clique et ajoute +1 au like a coté + au bordereau du bas.
-        //Au second clique se vide et -1

@@ -1,11 +1,10 @@
 function factory(video) {
-    const $mediaSection = document.querySelector(".media-section")
     switch (video._video) {
         case undefined:
-            return $mediaSection.appendChild(new Picture(video).createMediaCardPicture())
+            return new Picture(video)
 
         default:
-            return $mediaSection.appendChild(new Movie(video).createMediaCardMovie())
+            return new Movie(video)
 
     }
 }

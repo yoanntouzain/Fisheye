@@ -4,8 +4,6 @@ class DetailsPhotographerApps {
         this.$mediaSection = document.querySelector(".media-section")
         this.$photographHeader = document.querySelector(".photograph-header")
 
-        //Pour les likes
-
         //Pour garder le ID concernant mes photographers
         this.idUrl = document.location.href.substring(document.location.href.lastIndexOf("?id=")+4)
 
@@ -107,8 +105,10 @@ class DetailsPhotographerApps {
         actionLike(this.popularitef)
     }
 
+    //Pour afficher le bandeau en bas a droite
     async FlagLikes() {
         const FlagLikesBar = await this.photographersApi.getPhotographers()
+
 
         FlagLikesBar
         .map(photographers => new Photographers(photographers))
@@ -133,6 +133,10 @@ Head.HeaderPhotographer()
 // Affiche mon menu déroulant
 const menu = new DetailsPhotographerApps()
 menu.filterMenu()
+
+// Affiche mon cadre en bas a droite concernant les likes et le prix/jours
+const Flag = new DetailsPhotographerApps()
+Flag.FlagLikes()
 
 // A partir du moment ou je change le filtre dans mon menu déroulant, je vérifie les conditions. Si la valeur de ma séléction de filtre est égal à ma value popularite, 
 // alors je crée une constante qui aura pour valeur une nouvelle instance de ma classe, puis j'executerai ma fonction
@@ -162,10 +166,5 @@ selectElem.addEventListener('change', function(){
 // Affiche ma section concernant mes images
 const filtrePop = new DetailsPhotographerApps()
 filtrePop.SectionPhotographersCardPop()
-
-
-// Affiche mon cadre en bas a droite concernant les likes et le prix/jours
-const Flag = new DetailsPhotographerApps()
-Flag.FlagLikes()
 
 const banniere = new LeCarousel()

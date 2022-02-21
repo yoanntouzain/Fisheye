@@ -53,6 +53,8 @@ body {
   top: 0;
   background: #fff;
   left: 0;
+  width: 100%;
+  display: none;
 }
 
 .title {
@@ -79,12 +81,12 @@ body {
   height: auto;
 }
 
-#carousel1 .item img {
+#carousel1 .item img, #carousel1 .item video {
   display: block;
   width: 89%;
   height: 650px;
-  box-shadow: 4px 0px #c4c4c4;
   border-radius: 5px;
+  object-fit: contain;
 }
 
 #carousel2 .item img {
@@ -117,7 +119,7 @@ body {
 .item {
   position: relative;
   overflow: hidden;
-  left: 58px;
+  left: 102px;
 }
 
 /**

@@ -8,3 +8,14 @@ function factory(video) {
 
     }
 }
+
+function factoryCarousel(video) {
+    switch (video._video) {
+        case undefined:
+            return new LeCarouselPicture(video)
+
+        default:
+            return new LeCarouselMovie(video)
+
+    }
+}

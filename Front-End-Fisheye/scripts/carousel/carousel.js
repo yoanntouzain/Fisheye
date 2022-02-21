@@ -18,12 +18,12 @@ class Carousel {
      */
     constructor(element, options = {}) {
         this.element = element
-        this.options = Object.assign({}, {
+        this.options = Object.assign({}, {//retourne toutes les propriété et leurs valeurs
             slidesToScroll: 1,
             slidesVisible: 1,
             loop: false
         }, options)
-        let children = [].slice.call(element.children)
+        let children = [].slice.call(element.children)/** Cette variable est égale au premier enfant de l'élément auquel on a fait appel avec une valeur this qui renverra un objet tableau et contiendra une copie du tableau */
         this.isMobile = false
         this.currentItem = 0
         this.moveCallbacks = []
@@ -203,8 +203,34 @@ function bonjour() {
 
 function actionCarousel(e) {
     e.preventDefault()
-    banniere.createCarousel()
     new Carousel(document.querySelector('#carousel1')), {
         loop: true,
     }
+    document.querySelector('#carousel1').style.display = "block"
 }
+
+/**Un carousel est une fenetre permettant d'afficher des image et les faire défiler à l'aide du clavier ou de la souris
+ * 
+ * quand tu clique sur une image une fenetre s'ouvre
+ * 1. crée une lightbox qui contiendra mon carousel
+ *  1.1 empecher le fonctionnement du Lien
+ *  1.2 ouvre la lightbox au moment du clique sur une image
+ * 
+ * si il veut fermer la fenetre il peut soit cliquer sur la croix en a droite soit utiliser la touche echap du clavier
+ * 2. il contiendra une Croix en haut a droite
+ *  2.1 cette croix seras cliquable et aura pour fonction de fermer la lightbox
+ *  2.2 lorsque la lightbox est ouverte permettre a la touche echap du clavier de le fermer
+ * 
+ * 3. dans cette fenetre tu affiche toute les image de la page, mais tu montre a l'utilisateur d'abord celle qu'il a cliquer
+ * 
+ * l'utilisateur peut faire defiler les images soit, en cliquant sur les flèche de chaque coter de l'image soit en utilisant les flèche du clavier
+ * 4. crée les fleches pour le defilement
+ *  4.1 en mettre une de chaque coter de l'image
+ *  4.2 les rendre cliquable
+ *  4.3 quand tu clique dessus tu passe a l'image suivant ou précédente suivant la fleche cliquer
+ *  4.4 le felche son utilisable avec les fleche du clavier
+ * 
+ * final: Quand l'utilisateur clique sur image, il affiche le carousel avec l'image sur laquelle il a cliquer. il peut faire defiler les images soit, en cliquant
+ *          sur les fleche pour aller a droite ou a gauche, ou a l'aide du clavier. Pour fermer le carousel il pourras soit, cliquer sur la croix, soit utiliser 
+ *          la touche echap
+ */

@@ -52,7 +52,7 @@ class Movie extends MediaCard {
         const $article = document.createElement( 'article' )
 
         const mediaCard =
-        `<a href="#" alt="lien vers image">
+        `<a href="#" alt="lien vers image" class="vignette">
             <div>
                 <div class="containerMedia">
                     <video controls>
@@ -77,41 +77,38 @@ class Movie extends MediaCard {
 }
 
 
-class LeCarousel extends MediaCard {
+class LeCarouselPicture extends MediaCard {
     constructor(media) {
         super(media)
     }
-    createCarousel() {
-        const $sousContainer = document.createElement( 'div' )
-        $sousContainer.setAttribute('id', 'carousel1')
+    createMediaCard() {
+        const $sousContainer = this.div
+        $sousContainer.setAttribute("class", "item")
 
         const $containerImage =
-            `<div class="item">
-                <div class="items__image">
-                    <img class="image" src="/assets/images/Sample_photos/sport_water_tunnel.jpg">
-                </div>
-            </div>
-            <div class="item">
-                <div class="items__image">
-                    <img class="image" src="/assets/images/Sample_photos/sport_water_tunnel.jpg">
-                </div>
-            </div>
-            <div class="item">
-                <div class="items__image">
-                    <img class="image" src="/assets/images/Sample_photos/sport_water_tunnel.jpg">
-                </div>
-            </div>
-            <div class="item">
-                <div class="items__image">
-                    <img class="image" src="/assets/images/Sample_photos/sport_water_tunnel.jpg">
-                </div>
-            </div>
-            <div class="item">
-                <div class="items__image">
-                    <img class="image" src="/assets/images/Sample_photos/sport_water_tunnel.jpg">
-                </div>
+            `<div class="items__image">
+                    <img src="${this._media.image}" class="image">
             </div>`
-            main.appendChild($sousContainer)
+            $sousContainer.innerHTML = $containerImage
+
+        return $sousContainer
+    }
+}
+
+class LeCarouselMovie extends MediaCard {
+    constructor(media) {
+        super(media)
+    }
+    createMediaCard() {
+        const $sousContainer = this.div
+        $sousContainer.setAttribute("class", "item")
+
+        const $containerImage =
+            `<div class="items__image">
+                <video controls>
+                    <source src="${this._media.video}" type="video/mp4">
+                </video>
+            </div>`
             $sousContainer.innerHTML = $containerImage
 
         return $sousContainer

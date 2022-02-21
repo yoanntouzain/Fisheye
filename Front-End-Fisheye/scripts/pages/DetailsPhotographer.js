@@ -3,6 +3,7 @@ class DetailsPhotographerApps {
     constructor() {
         this.$mediaSection = document.querySelector(".media-section")
         this.$photographHeader = document.querySelector(".photograph-header")
+        this.carousel = document.querySelector("#carousel1")
 
         //Pour garder le ID concernant mes photographers
         this.idUrl = document.location.href.substring(document.location.href.lastIndexOf("?id=")+4)
@@ -46,6 +47,10 @@ class DetailsPhotographerApps {
         this.popularitef.forEach(popularite => {
             this.$mediaSection.appendChild(factory(popularite).createMediaCard())
         })
+        this.popularitef.forEach(popularite => {
+            this.carousel.appendChild(factoryCarousel(popularite).createMediaCard())
+        })
+        bonjour()
         actionLike(this.popularitef)
     }
     
@@ -124,6 +129,7 @@ class DetailsPhotographerApps {
         const Filter = new SorterForm()
         Filter.render()
     }
+
 }
 
 // Affiche mon cadre en dessous de mon header
@@ -167,4 +173,4 @@ selectElem.addEventListener('change', function(){
 const filtrePop = new DetailsPhotographerApps()
 filtrePop.SectionPhotographersCardPop()
 
-const banniere = new LeCarousel()
+const banniere = new LeCarouselPicture()

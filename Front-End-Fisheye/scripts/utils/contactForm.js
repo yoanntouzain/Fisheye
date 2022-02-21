@@ -7,3 +7,9 @@ function closeModal() {
 
 }
 
+
+function closeModal() {
+	//document.querySelector("#carousel1").remove()
+	window.location.reload()
+}
+

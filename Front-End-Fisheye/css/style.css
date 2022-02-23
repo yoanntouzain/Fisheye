@@ -26,7 +26,7 @@ a {
 }
 
 a:hover, a:focus {
-  border: 3px solid #D3573C;
+  border: 3px solid #DB8876;
 }
 
 /*body, html {
@@ -201,69 +201,34 @@ body {
   height: 90px;
 }
 
-:root {
-  --modal-duration: 0.8s;
+/*dialog overlay*/
+.c-dialog {
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: #C4C4C466;
+  transition: 0.3s;
 }
 
-.photograph-header {
-  background-color: #FAFAFA;
-  height: 300px;
-  margin: 0;
-  margin-bottom: 9px;
-  display: flex;
-}
-.photograph-header .container-photograph {
-  display: flex;
-  justify-content: space-around;
+/*dialog box*/
+.c-dialog__box {
+  margin: 1.8% auto;
   width: 100%;
-  margin: auto;
-}
-
-.presentation {
-  margin: auto;
-}
-.presentation h2 {
-  font-size: 3.1em;
-  color: #D3573C;
-  margin-bottom: 0px;
-}
-.presentation .location-photographer {
-  color: #901C1C;
-  font-size: 1.15em;
-  margin-top: 16px;
-  margin-bottom: 0px;
-}
-.presentation .tagline-photographer {
-  color: #525252;
-  font-size: 0.9em;
-  margin-top: 19px;
-}
-
-.button {
-  margin: auto 4.5%;
-}
-.button .contact_button {
-  font-size: 20px;
-  font-weight: bold;
-  color: white;
-  padding: 11px;
-  width: 170px;
-  height: 56px;
-  border: none;
-  background: #901C1C;
-  border-radius: 5px;
-  cursor: pointer;
-  margin: auto;
-}
-
-.photo {
-  margin: auto;
-}
-
-.contact_button:hover, .contact_button:focus {
-  background: #DB8876;
+  max-width: 699px;
+  background: #db8876;
+  border-radius: 10px;
   color: #000000;
-  border: 1px solid #000000;
+  height: auto;
+  display: flex;
+}
+
+/*hidden dialog*/
+.c-dialog[aria-hidden=true] {
+  visibility: hidden;
+  opacity: 0;
 }
 
 .bground {
@@ -299,22 +264,7 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  padding: 0% 5% 4%;
-}
-
-.modal header {
-  justify-content: space-between;
-  width: 100%;
-}
-
-.modal header img {
-  cursor: pointer;
-}
-
-.modal header h2 {
-  font-size: 64px;
-  font-weight: normal;
-  text-align: center;
+  padding: 0% 5% 5.44%;
 }
 
 form {
@@ -342,15 +292,17 @@ form label {
 .modal-close-btn {
   margin: 24px 0px 24px 35px;
   width: 7%;
-  height: 7%;
+  height: 28%;
   background-color: #db8876;
-  color: white;
+  color: black;
   border: 0px solid #db8876;
+  font-size: 2.5em;
 }
 
 .modal-close-btn:focus, .modal-close-btn:hover {
   border: 1px solid #000000;
   background-color: #000000;
+  color: white;
 }
 
 .en_tete img {
@@ -363,7 +315,21 @@ form label {
   flex-direction: column;
   width: 100%;
   align-items: self-start;
-  margin-bottom: 26px;
+}
+.div_form p {
+  margin: 0;
+  width: 98%;
+}
+.div_form .contact_button {
+  width: 170px;
+  height: 69px;
+  background: #901c1c;
+  color: white;
+  font-size: 1.1em;
+  border-radius: 5px;
+  border: 0px solid;
+  margin-top: 26px;
+  font-weight: bold;
 }
 
 .div_form input {
@@ -379,6 +345,79 @@ form label {
   height: 114px;
   border-radius: 5px;
   font-size: 1.5em;
+}
+
+.contact_button:hover, .contact_button:focus {
+  background: #DB8876;
+  color: black;
+  border: 1px solid black;
+}
+
+:root {
+  --modal-duration: 0.8s;
+}
+
+.photograph-header {
+  background-color: #FAFAFA;
+  height: 300px;
+  margin: 0;
+  margin-bottom: 9px;
+  display: flex;
+}
+.photograph-header .container-photograph {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin: auto;
+  padding-left: 2.15%;
+  padding-right: 2.15%;
+}
+
+.presentation {
+  margin: 0;
+}
+.presentation h2 {
+  font-size: 3.1em;
+  color: #D3573C;
+  margin-bottom: 0px;
+}
+.presentation .location-photographer {
+  color: #901C1C;
+  font-size: 1.15em;
+  margin-top: 16px;
+  margin-bottom: 0px;
+}
+.presentation .tagline-photographer {
+  color: #525252;
+  font-size: 0.9em;
+  margin-top: 19px;
+}
+
+.button_modal {
+  margin: auto 4.5%;
+}
+.button_modal .contact_button {
+  font-size: 20px;
+  font-weight: bold;
+  color: white;
+  padding: 11px;
+  width: 170px;
+  height: 56px;
+  border: none;
+  background: #901C1C;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: auto;
+}
+
+.photo {
+  margin: 0;
+}
+
+.contact_button:hover, .contact_button:focus {
+  background: #DB8876;
+  color: black;
+  border: 1px solid black;
 }
 
 .photograph-header .photo img {

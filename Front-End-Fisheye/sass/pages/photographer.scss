@@ -9,13 +9,15 @@
     display: flex;
     & .container-photograph {
         display: flex;
-        justify-content: space-around;
+        justify-content: space-between;
         width: 100%;
         margin: auto;
+        padding-left: 2.15%;
+        padding-right: 2.15%;
     }
 }
 .presentation {
-    margin: auto;
+    margin: 0;
     & h2 {
         font-size: 3.1em;
         color: $color-second-primary;
@@ -33,7 +35,7 @@
         margin-top: 19px;
     }
 }
-.button {
+.button_modal {
     margin: auto 4.5%;
     & .contact_button {
         font-size: 20px;
@@ -51,131 +53,15 @@
 }
 
 .photo {
-    margin: auto;
+    margin: 0;
 }
 
-.contact_button:hover, .contact_button:focus {
-    background: #DB8876;
-    color: #000000;
-    border: 1px solid #000000;
+.contact_button:hover, .contact_button:focus{
+    background: $background-focus;
+    color: $color-focus ;
+    border: 1px solid $color-focus;
 }
 
-
-.bground {
-    display: none;
-    width: 100%;
-    height: 100%;
-    position: fixed;
-    z-index: 1;
-    left: 0;
-    top: 0;
-    overflow: auto;
-    background-color: #C4C4C466 ;
-}
-
-.content {
-    margin: 1.8% auto;
-    width: 100%;
-    max-width: 699px;
-    animation-name: modalopen;
-    animation-duration: var(--modal-duration);
-    background: #db8876;
-    border-radius: 10px;
-    overflow: hidden;
-    position: relative;
-    color: #000000;
-}
-
-.modal {    
-    border-radius: 5px;
-    background-color: #DB8876;
-    width: 90.1%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0% 5% 4%;
-}
-
-.modal header {
-    justify-content: space-between;
-    width: 100%;
-}
-
-.modal header img {
-    cursor: pointer;
-}
-
-
-.modal header h2 {
-    font-size: 64px;
-    font-weight: normal;
-    text-align: center;
-}
-
-form {
-    width: 100%;
-}
-
-form label {
-    color: #312E2E;
-    font-size: 1.9em;
-}
-.en_tete {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    width: 100%;
-    margin-bottom: 4%;
-}
-
-.en_tete h2 {
-    font-size: 4em;
-    margin: 0px;
-}
-
-.modal-close-btn {
-    margin: 24px 0px 24px 35px;
-    width: 7%;
-    height: 7%;
-    background-color: #db8876;
-    color: white;
-    border: 0px solid #db8876;
-}
-
-.modal-close-btn:focus, .modal-close-btn:hover {
-    border: 1px solid #000000;
-    background-color: #000000;
-}
-
-.en_tete img {
-    width: 100%;
-    height: 100%;
-}
-
-
-.div_form{
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    align-items: self-start;
-    margin-bottom: 26px;
-}
-
-.div_form input {
-    width: 99%;
-    height: 68px;
-    border: none;
-    border-radius: 5px;
-    font-size: 1.5em;
-}
-
-.div_form textarea {
-    width: 99%;
-    height: 114px;
-    border-radius: 5px;
-    font-size: 1.5em;
-}
 .photograph-header .photo img {
     width: 200px;
     height: 200px;

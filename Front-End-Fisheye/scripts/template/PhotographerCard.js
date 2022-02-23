@@ -22,9 +22,7 @@ class PhotographerCard {
     }
 
     createHeaderPhotographerCard() {
-        const $div0 = document.createElement('div')
-            $div0.setAttribute("class", "container-photograph")
-
+        const $div0 = document.querySelector('.container-photograph')
 
         const getUserPage =
             `<div class="presentation">
@@ -32,8 +30,8 @@ class PhotographerCard {
                 <p class="location-photographer">${this._photographers.city}, ${this._photographers.country}</p>
                 <p class="tagline-photographer">${this._photographers.tagline}</p>
             </div>
-            <div class="button">
-                <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
+            <div class="button_modal"><!--Container pour ouvrir la modal-->
+              <button title="Ouvrir cette fenêtre modale" type="button" aria-haspopup="dialog" aria-controls="dialog" class="contact_button" onclick="modals()">Contactez-moi</button>
             </div>
             <div class="photo">
                 <img src="${this._photographers.portrait}" alt="image du profil du photographe"/>

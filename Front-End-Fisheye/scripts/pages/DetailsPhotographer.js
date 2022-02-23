@@ -50,7 +50,7 @@ class DetailsPhotographerApps {
         this.popularitef.forEach(popularite => {
             this.carousel.appendChild(factoryCarousel(popularite).createMediaCard())
         })
-        bonjour()
+        clickEvent(this.$mediaSection)
         actionLike(this.popularitef)
     }
     

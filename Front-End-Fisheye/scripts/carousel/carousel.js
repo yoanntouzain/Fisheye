@@ -31,7 +31,7 @@ class Carousel {
         //Modification du DOM
         this.root = this.createDivWithClass('carousel')
         this.container = this.createDivWithClass('carousel__container')
-        this.root.setAttribute('tabindex', '0')
+        this.root.setAttribute('tabindex', '-1')
         this.root.appendChild(this.container)
         this.element.appendChild(this.root)
         this.item = children.map((child) => {
@@ -72,9 +72,13 @@ class Carousel {
 
     closeWindow() {
         this.close = document.createElement( 'bouton' )
+        this.close.setAttribute('type', 'button')
+        this.close.setAttribute('aria-label', 'Fermer')
+        this.close.setAttribute('title', 'Fermer cette fenêtre modale')
+        this.close.setAttribute('data-dimiss', 'dialog')
         this.close.setAttribute('class', 'modal-close-btn')
         this.close.setAttribute('alt', 'Croix permettant de fermer le diaporama des images')
-        this.close.setAttribute('onclick', 'closeModal()')
+        this.close.setAttribute('onclick', 'closeModalCarousel()')
 
         this.containerImage =
             `<svg width="42" height="42" viewBox="0 0 42 42" xmlns="http://www.w3.org/2000/svg">
@@ -158,7 +162,7 @@ class Carousel {
     }
 
     onWindowResize() {
-        let mobile = window.innerWidth < 800
+        let mobile = window.innerWidth < 982
         if (mobile !== this.isMobile) {
             this.isMobile = mobile
             this.setStyle()
@@ -195,7 +199,7 @@ class Carousel {
 }
 
 
-function bonjour() {
+function clickEvent() {
     let eventOnClick = document.querySelectorAll('.vignette')
     eventOnClick.forEach(Vignette => Vignette.addEventListener("click", actionCarousel))
 }
@@ -203,9 +207,10 @@ function bonjour() {
 
 function actionCarousel(e) {
     e.preventDefault()
-    new Carousel(document.querySelector('#carousel1')), {
-        loop: true,
-    }
+    let $mediaSection = document.querySelector(".media-section")
+    $mediaSection.style.display = "none"
+    new Carousel(document.querySelector('#carousel1'),{
+    })
     document.querySelector('#carousel1').style.display = "block"
 }
 

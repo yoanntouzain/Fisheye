@@ -77,6 +77,7 @@ class DetailsPhotographerApps {
         this.popularitef.forEach(date => {
             this.$mediaSection.appendChild(factory(date).createMediaCard())
         })
+        clickEvent(this.$mediaSection)
         actionLike(this.popularitef)
     }
 
@@ -107,6 +108,7 @@ class DetailsPhotographerApps {
         this.popularitef.forEach(title => {
             this.$mediaSection.appendChild(factory(title).createMediaCard())
         })
+        clickEvent(this.$mediaSection)
         actionLike(this.popularitef)
     }
 

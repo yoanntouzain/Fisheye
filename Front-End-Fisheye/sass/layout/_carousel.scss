@@ -40,6 +40,19 @@ body {
     background-color: #fff;
     transition: transform 0.3s;
     transform: translate3d(0, -1px, 0);
+    position: relative;
+    overflow: hidden;
+    left: 102px;
+    & .description {
+        display: flex;
+        width: 100%;
+        color: #901C1C;
+        & .titre {
+            font-size: 1.2em;
+            font-weight: bold;
+            margin-left: 42%;
+        }
+    }
 }
 
 .item:hover {
@@ -72,27 +85,6 @@ body {
     height: 650px;
 }
 
-.item__body {
-    padding: 25px;
-}
-
-.item__title {
-    font-size: 24px;
-    margin-bottom: 5px;
-    font-weight: bold;
-    color: #232323;
-}
-
-.item__description {
-    color: #585858;
-}
-
-.item {
-    position: relative;
-    overflow: hidden;
-    left: 102px;
-}
-
 /**
  Carousel
 */
@@ -102,16 +94,14 @@ body {
 .carousel .modal-close-btn {
     position: absolute;
     top: 5%;
-    right: 11px;
+    right: 120px;
     margin: 0px;
-    width: 3.5%;
-    height: 5.8%;
     background-color: transparent;
-    & svg {
-        fill: #901C1C;
-        width: 42px;
-        height: 42px;
-    }
+    color: $background-primary;
+    width: 25px;
+    height: 46px;
+    font-size: 2.5em;
+    font-weight: bold;
 }
 
 .carousel__container {

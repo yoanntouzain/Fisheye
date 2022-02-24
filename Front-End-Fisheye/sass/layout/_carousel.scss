@@ -54,6 +54,10 @@ body {
         }
     }
 }
+.items__content {
+    width: 48.5%;
+    margin: auto;
+}
 
 .item:hover {
     transform: translate3d(0, -10px, 0);

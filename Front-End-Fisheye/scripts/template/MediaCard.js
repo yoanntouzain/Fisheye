@@ -83,16 +83,16 @@ class LeCarouselPicture extends MediaCard {
     }
     createMediaCard() {
         const $sousContainer = this.div
-        $sousContainer.setAttribute("class", "item")
+        $sousContainer.setAttribute("class", "carousel__item")
 
         const $containerImage =
-            `<div class="items__image">
+            `<div class="item">
+                <div class="items__content">
                     <img src="${this._media.image}" class="image">
-            </div>
-            <div class="description">
-                <p class="titre">
-                    ${this._media.title}
-                </p>
+                </div>
+                <div class="description">
+                    <p class="titre">${this._media.title}</p>
+                </div>
             </div>`
             $sousContainer.innerHTML = $containerImage
 
@@ -106,16 +106,56 @@ class LeCarouselMovie extends MediaCard {
     }
     createMediaCard() {
         const $sousContainer = this.div
-        $sousContainer.setAttribute("class", "item")
+        $sousContainer.setAttribute("class", "carousel__item")
 
         const $containerImage =
-            `<div class="items__image">
-                <video controls>
-                    <source src="${this._media.video}" type="video/mp4">
-                </video>
+            `<div class="item">
+                <div class="items__content">
+                    <video controls="">
+                        <source src="${this._media.video}" type="video/mp4">
+                    </video>
+                </div>
             </div>`
             $sousContainer.innerHTML = $containerImage
 
         return $sousContainer
     }
-}
+}/*
+<div id="carousel1">
+    <div class="carousel">
+        <div class="carousel__container">
+            <div class="carousel__item">
+                <div class="item">
+                    <div class="items__image">
+                        <video controls="">
+                            <source src="${this._media.video}" type="video/mp4">
+                        </video>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <bouton type="button" aria-label="Fermer" title="Fermer cette fenêtre modale" data-dimiss="dialog" class="modal-close-btn" alt="Croix permettant de fermer le diaporama des images" onclick="closeModalCarousel()">X</bouton>
+        <div class="carousel__next"></div>
+        <div class="carousel__prev carousel__prev--hidden"></div>
+    </div>
+</div>
+
+<div id="carousel1">
+    <div class="carousel">
+        <div class="carousel__container">
+            <div class="carousel__item">
+                <div class="item">
+                    <div class="items__image">
+                        <img src="${this._media.image}" class="image">
+                    </div>
+                    <div class="description">
+                        <p class="titre">${this._media.title}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <bouton type="button" aria-label="Fermer" title="Fermer cette fenêtre modale" data-dimiss="dialog" class="modal-close-btn" alt="Croix permettant de fermer le diaporama des images" onclick="closeModalCarousel()">X</bouton>
+        <div class="carousel__next"></div>
+        <div class="carousel__prev carousel__prev--hidden"></div>
+    </div>
+</div>*/

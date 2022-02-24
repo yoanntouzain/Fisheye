@@ -29,17 +29,16 @@ class Carousel {
         this.moveCallbacks = []
 
         //Modification du DOM
-        this.root = this.createDivWithClass('carousel')
-        this.container = this.createDivWithClass('carousel__container')
+        this.root = document.querySelector('.carousel')
+        this.container = document.querySelector('.carousel__container')
         this.root.setAttribute('tabindex', '-1')
-        this.root.appendChild(this.container)
         this.element.appendChild(this.root)
-        this.item = children.map((child) => {
+        /*this.item = children.map((child) => {
             let item = this.createDivWithClass('carousel__item')
             item.appendChild(child)
             this.container.appendChild(item)
             return item
-        })
+        })*/
         this.setStyle()
         this.closeWindow()
         this.createNavigation()
@@ -205,8 +204,6 @@ function clickEvent() {
 
 function actionCarousel(e) {
     e.preventDefault()
-    let $mediaSection = document.querySelector(".media-section")
-    $mediaSection.style.display = "none"
     new Carousel(document.querySelector('#carousel1'),{
     })
     document.querySelector('#carousel1').style.display = "block"

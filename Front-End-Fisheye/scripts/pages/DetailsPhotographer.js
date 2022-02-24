@@ -3,7 +3,7 @@ class DetailsPhotographerApps {
     constructor() {
         this.$mediaSection = document.querySelector(".media-section")
         this.$photographHeader = document.querySelector(".photograph-header")
-        this.carousel = document.querySelector("#carousel1")
+        this.carousel = document.querySelector(".carousel__container")
 
         //Pour garder le ID concernant mes photographers
         this.idUrl = document.location.href.substring(document.location.href.lastIndexOf("?id=")+4)

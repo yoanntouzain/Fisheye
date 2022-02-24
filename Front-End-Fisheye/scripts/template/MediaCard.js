@@ -88,6 +88,11 @@ class LeCarouselPicture extends MediaCard {
         const $containerImage =
             `<div class="items__image">
                     <img src="${this._media.image}" class="image">
+            </div>
+            <div class="description">
+                <p class="titre">
+                    ${this._media.title}
+                </p>
             </div>`
             $sousContainer.innerHTML = $containerImage
 

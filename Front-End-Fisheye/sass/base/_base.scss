@@ -2,3 +2,11 @@ body {
     font-family: "DM Sans", sans-serif;
     margin: auto 100px;
 }
+
+a {
+    border: 3px solid transparent;
+}
+
+a:hover, a:focus {
+    border: 3px solid $background-focus;
+}

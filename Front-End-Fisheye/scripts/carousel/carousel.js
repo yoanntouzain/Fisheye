@@ -18,12 +18,12 @@ class Carousel {
      */
     constructor(element, options = {}) {
         this.element = element
-        this.options = Object.assign({}, {
+        this.options = Object.assign({}, {//retourne toutes les propriété et leurs valeurs
             slidesToScroll: 1,
             slidesVisible: 1,
             loop: false
         }, options)
-        let children = [].slice.call(element.children)
+        let children = [].slice.call(element.children)/** Cette variable est égale au premier enfant de l'élément auquel on a fait appel avec une valeur this qui renverra un objet tableau et contiendra une copie du tableau */
         this.isMobile = false
         this.currentItem = 0
         this.moveCallbacks = []
@@ -31,7 +31,7 @@ class Carousel {
         //Modification du DOM
         this.root = this.createDivWithClass('carousel')
         this.container = this.createDivWithClass('carousel__container')
-        this.root.setAttribute('tabindex', '0')
+        this.root.setAttribute('tabindex', '-1')
         this.root.appendChild(this.container)
         this.element.appendChild(this.root)
         this.item = children.map((child) => {
@@ -72,14 +72,16 @@ class Carousel {
 
     closeWindow() {
         this.close = document.createElement( 'bouton' )
+        this.close.setAttribute('type', 'button')
+        this.close.setAttribute('aria-label', 'Fermer')
+        this.close.setAttribute('title', 'Fermer cette fenêtre modale')
+        this.close.setAttribute('data-dimiss', 'dialog')
         this.close.setAttribute('class', 'modal-close-btn')
         this.close.setAttribute('alt', 'Croix permettant de fermer le diaporama des images')
-        this.close.setAttribute('onclick', 'closeModal()')
+        this.close.setAttribute('onclick', 'closeModalCarousel()')
 
         this.containerImage =
-            `<svg width="42" height="42" viewBox="0 0 42 42" xmlns="http://www.w3.org/2000/svg">
-            <path d="M42 4.23L37.77 0L21 16.77L4.23 0L0 4.23L16.77 21L0 37.77L4.23 42L21 25.23L37.77 42L42 37.77L25.23 21L42 4.23Z" fill="transparant"/>
-            </svg>`
+            `X`
             
         this.root.appendChild(this.close)
             
@@ -158,7 +160,7 @@ class Carousel {
     }
 
     onWindowResize() {
-        let mobile = window.innerWidth < 800
+        let mobile = window.innerWidth < 982
         if (mobile !== this.isMobile) {
             this.isMobile = mobile
             this.setStyle()
@@ -195,7 +197,7 @@ class Carousel {
 }
 
 
-function bonjour() {
+function clickEvent() {
     let eventOnClick = document.querySelectorAll('.vignette')
     eventOnClick.forEach(Vignette => Vignette.addEventListener("click", actionCarousel))
 }
@@ -203,8 +205,9 @@ function bonjour() {
 
 function actionCarousel(e) {
     e.preventDefault()
-    banniere.createCarousel()
-    new Carousel(document.querySelector('#carousel1')), {
-        loop: true,
-    }
+    let $mediaSection = document.querySelector(".media-section")
+    $mediaSection.style.display = "none"
+    new Carousel(document.querySelector('#carousel1'),{
+    })
+    document.querySelector('#carousel1').style.display = "block"
 }

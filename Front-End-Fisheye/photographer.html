@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
   <head>
     <script src="https://kit.fontawesome.com/2cc0192606.js" crossorigin="anonymous"></script><!--Pour intégrer les icones-->
     <link href="css/style.css" rel="stylesheet" type="text/css" />
@@ -9,9 +9,9 @@
     <title>Fisheye - photographe </title>
     <!--API-->
     <script src="scripts/api/Api.js"></script>
-  
-    <!--Carousel-->
-    <script src="scripts/carousel/carousel.js"async></script>
+
+    <!--Factory-->
+    <script src="scripts/factories/factory.js" async></script>
 
     <!--MODELS-->
     <script src="scripts/models/Photographers.js" async></script>
@@ -21,60 +21,70 @@
     <script src="scripts/pages/DetailsPhotographer.js" async></script>
 
     <!--TEMPLATE-->
-    <script src="scripts/template/PhotographerCard.js" async></script>
+    <script src="scripts/template/PhotographerCard.js"></script>
     <script src="scripts/template/MediaCard.js"></script>
     <script src="scripts/template/SorterForm.js"></script>
 
     <!--UTILS-->
     <script src="scripts/utils/contactForm.js" async></script>
-    <script src="scripts/factories/Photographer.js" async></script>
+    <script src="scripts/utils/like.js" async></script>
+
+    <!--Carousel-->
+    <script src="scripts/carousel/carousel.js" async></script>
+    
     
   </head>
-  <body>
+  <body id="body">
     <header class="header">
-      <a href="index.html" alt="Fisheye page d'accueil"  class="lien-logo">
-        <img src="assets/images/logo.png" class="logo" alt="logo"/>
+      <a href="index.html" class="lien-logo">
+        <img src="assets/images/logo.png" alt="Fisheye page d'accueil" class="logo"/>
       </a>
     </header>
     <!--MAIN-->
     <main id="main">
       <div class="photograph-header">
-      </div>
-      <!--BGROUND-->
-      <div class="bground"> 
-        <div class="content">
-          <!--LE MODAL-->
-          <div class="modal"> 
-            <div class="en_tete">
-              <h2>Contactez-moi Mini Keel</h2>
-              <button class="modal-close-btn">
-                <img src="assets/icons/close.svg" alt="Croix permettant de fermer le modal" onclick="closeModal()" />
-              </button>
-            </div>
-            <!--FORMULAIRE-->
-            <form> 
-              <div class="div_form">
-                <label for="first">Prénom</label>
-                <input type="text" name="first" id="first">
-                <label for="last">Nom</label>
-                <input type="text" name="last" id="last">
-                <label for="email">Email</label>
-                <input type="email" name="email" id="email">
-                <label for="message">Votre message</label>
-                <textarea name="message" id="message"></textarea>
-              </div>
-              <button class="contact_button">Envoyer</button>
-            </form> 
-            <!--FIN DE FORMULAIRE-->
-          </div> 
-          <!--FIN DU MODAL-->
+        <div class="container-photograph">
         </div>
-      </div> 
-      <!--FIN DU BGROUND-->
+      </div>
+      <!--JS PAGE-->
+      <div class="js-page">
+        <div id="dialog" role="dialog" aria-labelledby="dialog-title" aria-modal="true" aria-hidden="true" tabindex="-1" class="c-dialog">
+          <div role="document" class="c-dialog__box content">
+            <div class="modal">
+              <div class="en_tete">
+                <h2 id="dialog-title">Contactez-moi Mini Keel</h2>
+                <button class="modal-close-btn" type="button" aria-label="Fermer" title="Fermer cette fenêtre modale" data-dismiss="dialog">X</button>
+              </div>
+              <form method="post">
+                <div class="div_form">
+                  <p>
+                    <label for="first">Prénom</label>
+                    <input type="text" name="first" id="first">
+                  </p>
+                  <p>
+                    <label for="last">Nom</label>
+                    <input type="text" name="last" id="last">
+                  </p>
+                  <p>
+                    <label for="email">Email</label><br />
+                    <input type="email" id="email" />
+                  </p>
+                  <p>
+                    <label for="message">Votre message</label>
+                    <textarea name="message" id="message"></textarea>
+                  </p>
+                  <button type="submit" class="contact_button">Envoyer</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
       <!--volet trieur-->
       <div class="sorter-form-wrapper"> 
       </div> <!--FIN DU volet trieur-->
       <div class="media-section"></div>
+      <div id="carousel1"></div>
   </main> <!--FIN DU MAIN-->
   </body>
 </html>

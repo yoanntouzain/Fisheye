@@ -1,10 +1,16 @@
 
 class DetailsPhotographerApps {
     constructor() {
-        this.popularitef = []
         this.$mediaSection = document.querySelector(".media-section")
         this.$photographHeader = document.querySelector(".photograph-header")
+        this.carousel = document.querySelector("#carousel1")
+
+        //Pour garder le ID concernant mes photographers
         this.idUrl = document.location.href.substring(document.location.href.lastIndexOf("?id=")+4)
+
+        //tableau pour mon filtre
+        this.popularitef = []
+
 
         //Permet de parcourir mon json suivant les données voulues
         this.mediaApi = new MediaApi('/data/photographers.json')
@@ -15,12 +21,12 @@ class DetailsPhotographerApps {
         const mediaHeader = await this.photographersApi.getPhotographers()
 
         mediaHeader
-            .map(photographers => new Photographers(photographers))
-            .forEach(photographers => {
-                if (this.idUrl == photographers._id) {
-                    const Template = new PhotographerCard(photographers)
-                    this.$photographHeader.appendChild(Template.createHeaderPhotographerCard())
-                }
+        .map(photographers => new Photographers(photographers))
+        .forEach(photographers => {
+            if (this.idUrl == photographers._id) {
+                const Template = new PhotographerCard(photographers)
+                this.$photographHeader.appendChild(Template.createHeaderPhotographerCard())
+            }
         })
     }
 
@@ -28,26 +34,24 @@ class DetailsPhotographerApps {
     async SectionPhotographersCardPop() {
         const populariteData = await this.mediaApi.getMedia()
 
-        bonjour()
         populariteData
-            .map(popularite => new Media(popularite))
-            .forEach(popularite => {
-                if (this.idUrl == popularite._photographerId) {
-                    this.popularitef.push(popularite)
-                    this.popularitef.sort(function(a,b) {
-                        return b._likes - a._likes
-                    })
-                }
-            })
-        this.popularitef.forEach(popularite => {
-            if (popularite._video == undefined) {
-                const Templates = new Picture(popularite)
-                this.$mediaSection.appendChild(Templates.createMediaCardPicture())
-            } else if(popularite._image == undefined) {
-                const Templates = new Movie(popularite)
-                this.$mediaSection.appendChild(Templates.createMediaCardMovie())
+        .map(popularite => new Media(popularite))
+        .forEach(popularite => {
+            if (this.idUrl == popularite._photographerId) {
+                this.popularitef.push(popularite)
+                this.popularitef.sort(function(a,b) {
+                    return b._likes - a._likes
+                })
             }
         })
+        this.popularitef.forEach(popularite => {
+            this.$mediaSection.appendChild(factory(popularite).createMediaCard())
+        })
+        this.popularitef.forEach(popularite => {
+            this.carousel.appendChild(factoryCarousel(popularite).createMediaCard())
+        })
+        clickEvent(this.$mediaSection)
+        actionLike(this.popularitef)
     }
     
     //on execute le tri par date
@@ -55,31 +59,26 @@ class DetailsPhotographerApps {
         const dateData = await this.mediaApi.getMedia()
 
         dateData
-            .map(date => new Media(date))
-            .forEach(date => {
-                if (this.idUrl == date._photographerId) {
-                    this.popularitef.push(date)
-                    this.popularitef.sort(function compare(a,b) {
-                        if(a._date > b._date) {
-                            return -1
-                        }
-                        if(a._date < b._date) {
-                        return 1 
-                        }
-                        return 0
-                    })
-                    console.log(date)
-                }
-            })
-        this.popularitef.forEach(date => {
-            if (date._video == undefined) {
-                const Templates = new Picture(date)
-                this.$mediaSection.appendChild(Templates.createMediaCardPicture())
-            } else if(date._image == undefined) {
-                const Templates = new Movie(date)
-                this.$mediaSection.appendChild(Templates.createMediaCardMovie())
+        .map(date => new Media(date))
+        .forEach(date => {
+            if (this.idUrl == date._photographerId) {
+                this.popularitef.push(date)
+                this.popularitef.sort(function(a,b) {
+                    if(a._date > b._date) {
+                        return -1
+                    }
+                    if(a._date < b._date) {
+                    return 1
+                    }
+                    return 0
+                })
             }
         })
+        this.popularitef.forEach(date => {
+            this.$mediaSection.appendChild(factory(date).createMediaCard())
+        })
+        clickEvent(this.$mediaSection)
+        actionLike(this.popularitef)
     }
 
     //on execute le tri par titre
@@ -88,37 +87,35 @@ class DetailsPhotographerApps {
 
         
         titleData
-            .map(title => new Media(title))
-            .forEach(title => {
-                if (this.idUrl == title._photographerId) {
-                    this.popularitef.push(title)
-                    this.popularitef.sort(function compare(a,b) {
-                    if(a._title > b._title) {
-                    return 1
-                    }
-                      if(a._title < b._title) {
-                    return -1
-                    }
-                    if (a._title == undefined) {
-                        return -1
-                    }
-                    return 0
-                  })
+        .map(title => new Media(title))
+        .forEach(title => {
+            if (this.idUrl == title._photographerId) {
+                this.popularitef.push(title)
+                this.popularitef.sort(function(a,b) {
+                if(a._title > b._title) {
+                return 1
                 }
-            })
-        this.popularitef.forEach(title => {
-            if (title._video == undefined) {
-                const Templates = new Picture(title)
-                this.$mediaSection.appendChild(Templates.createMediaCardPicture())
-            } else if(title._image == undefined) {
-                const Templates = new Movie(title)
-                this.$mediaSection.appendChild(Templates.createMediaCardMovie())
+                    if(a._title < b._title) {
+                return -1
+                }
+                if (a._title === undefined) {
+                    return -1
+                }
+                return 0
+                })
             }
         })
+        this.popularitef.forEach(title => {
+            this.$mediaSection.appendChild(factory(title).createMediaCard())
+        })
+        clickEvent(this.$mediaSection)
+        actionLike(this.popularitef)
     }
 
+    //Pour afficher le bandeau en bas a droite
     async FlagLikes() {
         const FlagLikesBar = await this.photographersApi.getPhotographers()
+
 
         FlagLikesBar
         .map(photographers => new Photographers(photographers))
@@ -130,12 +127,13 @@ class DetailsPhotographerApps {
         })
     }
 
-
     async filterMenu() {
         const Filter = new SorterForm()
         Filter.render()
     }
+
 }
+
 // Affiche mon cadre en dessous de mon header
 const Head = new DetailsPhotographerApps()
 Head.HeaderPhotographer()
@@ -144,32 +142,37 @@ Head.HeaderPhotographer()
 const menu = new DetailsPhotographerApps()
 menu.filterMenu()
 
-// Affiche ma section concernant mes images
-const filtrePop = new DetailsPhotographerApps()
-filtrePop.SectionPhotographersCardPop()
-
 // Affiche mon cadre en bas a droite concernant les likes et le prix/jours
 const Flag = new DetailsPhotographerApps()
 Flag.FlagLikes()
 
-const banniere = new LeCarousel()
-
 // A partir du moment ou je change le filtre dans mon menu déroulant, je vérifie les conditions. Si la valeur de ma séléction de filtre est égal à ma value popularite, 
 // alors je crée une constante qui aura pour valeur une nouvelle instance de ma classe, puis j'executerai ma fonction
 
-var selectElem = document.getElementById("sorter-select")
+const selectElem = document.getElementById("sorter-select")
 
 selectElem.addEventListener('change', function(){
-    var mediaSection = document.querySelector(".media-section")
+    const mediaSection = document.querySelector(".media-section")
+    const filtre = new DetailsPhotographerApps()
     mediaSection.innerHTML = ""
-    if (selectElem.value == "popularite") {
-        const filtrePop = new DetailsPhotographerApps()
-        filtrePop.SectionPhotographersCardPop()
-    } else if (selectElem.value == "date") {
-        const filtreDate = new DetailsPhotographerApps()
-        filtreDate.SectionPhotographersCardDate()
-    } else if (selectElem.value == "title") {
-        const filtreTitle = new DetailsPhotographerApps()
-        filtreTitle.SectionPhotographersCardTitle()
+    switch (selectElem.value) {
+        case "popularite":
+            return filtre.SectionPhotographersCardPop()
+
+        case "date":
+            return filtre.SectionPhotographersCardDate()
+
+        case "title":
+            return filtre.SectionPhotographersCardTitle()
+
+        default:
+            return console.log(selectElem.value)
     }
 })
+
+
+// Affiche ma section concernant mes images
+const filtrePop = new DetailsPhotographerApps()
+filtrePop.SectionPhotographersCardPop()
+
+const banniere = new LeCarouselPicture()

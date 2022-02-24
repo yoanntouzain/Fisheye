@@ -23,22 +23,32 @@ class Carousel {
             slidesVisible: 1,
             loop: false
         }, options)
-        let children = [].slice.call(element.children)/** Cette variable est égale au premier enfant de l'élément auquel on a fait appel avec une valeur this qui renverra un objet tableau et contiendra une copie du tableau */
+        //let children = [].slice.call(element.children)/** Cette variable est égale au premier enfant de l'élément auquel on a fait appel avec une valeur this qui renverra un objet tableau et contiendra une copie du tableau */
         this.isMobile = false
         this.currentItem = 0
         this.moveCallbacks = []
+        this.array = []
 
         //Modification du DOM
         this.root = document.querySelector('.carousel')
         this.container = document.querySelector('.carousel__container')
         this.root.setAttribute('tabindex', '-1')
         this.element.appendChild(this.root)
+
+
+        this.item = document.querySelectorAll('.carousel__item').forEach( items => {
+                this.array.push(items)
+                return this.array
+        })
+
         /*this.item = children.map((child) => {
             let item = this.createDivWithClass('carousel__item')
             item.appendChild(child)
             this.container.appendChild(item)
             return item
         })*/
+
+
         this.setStyle()
         this.closeWindow()
         this.createNavigation()
@@ -60,9 +70,9 @@ class Carousel {
      * Applique les bonnes dimensions aux éléments du carousel
      */
     setStyle() {
-        let ratio = this.item.length / this.slidesVisible
+        let ratio = this.array.length / this.slidesVisible
         this.container.style.width = (ratio * 100) + "%"
-        this.item.forEach(item =>
+        this.array.forEach(item =>
             item.style.width = ((100 / this.slidesVisible) / ratio) + "%"
         )
     }
@@ -92,10 +102,8 @@ class Carousel {
 
 
     createNavigation() {
-        let nextButton = this.createDivWithClass('carousel__next')
-        let prevButton = this.createDivWithClass('carousel__prev')
-        this.root.appendChild(nextButton)
-        this.root.appendChild(prevButton)
+        let nextButton = document.querySelector('.carousel__next')
+        let prevButton = document.querySelector('.carousel__prev')
         nextButton.addEventListener('click', this.next.bind(this))
         prevButton.addEventListener('click', this.prev.bind(this))
         if (this.options.loop === true) {
@@ -107,7 +115,7 @@ class Carousel {
             } else {
                 prevButton.classList.remove('carousel__prev--hidden')
             }
-            if (this.item[this.currentItem + this.slidesVisible] === undefined) {
+            if (this.array[this.currentItem + this.slidesVisible] === undefined) {
                 nextButton.classList.add('carousel__next--hidden')
             } else {
                 nextButton.classList.remove('carousel__next--hidden')
@@ -131,12 +139,12 @@ class Carousel {
     gotoItem(index) {
         if (index < 0) {
             if (this.options.loop) {
-                index = this.item.length - this.slidesVisible
+                index = this.array.length - this.slidesVisible
             } else {
                 return
             }
-            index = this.item.length - this.options.slidesVisible
-        } else if (index >= this.item.length || (this.item[this.currentItem + this.slidesVisible] === undefined && index > this.currentItem)) {
+            index = this.array.length - this.options.slidesVisible
+        } else if (index >= this.array.length || (this.array[this.currentItem + this.slidesVisible] === undefined && index > this.currentItem)) {
             if (this.options.loop) {
                 index = 0
             } else {
@@ -144,7 +152,7 @@ class Carousel {
             }
 
         }
-        let translateX = index * -100 / this.item.length
+        let translateX = index * -100 / this.array.length
         this.container.style.transform = 'translate3d(' + translateX + '%, 0, 0)'
         this.currentItem = index
         this.moveCallbacks.forEach(cb => cb(index))

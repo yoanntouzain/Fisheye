@@ -1,7 +1,6 @@
 
 function closeModalCarousel() {
-	//document.querySelector("#carousel1").remove()
-	window.location.reload()
+	document.querySelector("#carousel1").style.display = "none";
 }
 
 function modals() {

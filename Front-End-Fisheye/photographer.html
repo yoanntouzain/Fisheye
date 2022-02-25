@@ -82,10 +82,10 @@
       <div class="sorter-form-wrapper"> 
       </div> <!--FIN DU volet trieur-->
       <div class="media-section"></div>
-      <div id="carousel1">
-        <div class="carousel">
+      <div id="carousel1" role="dialog" aria-modal="true" aria-hidden="true" tabindex="-1" class="c-dialog">
+        <div class="carousel" role="document" class="c-dialog__box">
           <div class="carousel__container"></div>
-          <bouton type="button" aria-label="Fermer" title="Fermer cette fenêtre modale" data-dimiss="dialog" class="modal-close-btn" alt="Croix permettant de fermer le diaporama des images" onclick="closeModalCarousel()">X</bouton>
+          <bouton type="button" aria-label="Fermer" title="Fermer cette fenêtre modale" data-dismiss="carousel1" class="modal-close-btn" alt="Croix permettant de fermer le diaporama des images">X</bouton>
           <div class="carousel__next"></div>
           <div class="carousel__prev carousel__prev--hidden"></div>
         </div>

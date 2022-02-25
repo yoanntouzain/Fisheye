@@ -214,5 +214,5 @@ function actionCarousel(e) {
     e.preventDefault()
     new Carousel(document.querySelector('#carousel1'),{
     })
-    document.querySelector('#carousel1').style.display = "block"
+    modalsCarousel()
 }

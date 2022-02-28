@@ -19,6 +19,24 @@ function actionLike() {
                 LikesBar()
             }
         })
+        icone.addEventListener('keydown', (event) => {// au press de la touche entrer sur le bouton ouvrir ma modal tu execute la fonction open
+			if (event.which === 13) {/*event.which correspond au resultat de la touche actionner de la souris, du keycode, ou charcode*/
+                let valueHTML = icone.previousElementSibling.textContent /*correspond à mon contenu HTML de mon p.likes*/
+                if (icone.style.fill === "") {
+                    icone.style.fill = "#901C1C"
+                    icone.style.transition = "0.3s"
+                    valueHTML++ /*permet de faire +1*/
+                    icone.previousElementSibling.innerHTML = valueHTML /*permet d'écrire la nouvelle valeur dans mon p.likes*/
+                    LikesBar()
+                }else{
+                    icone.style.fill = ""
+                    icone.style.transition = "0.3s"
+                    valueHTML-- /*permet de faire -1*/
+                    icone.previousElementSibling.innerHTML = valueHTML
+                    LikesBar()
+                }
+			}
+		})
     })
 }
 

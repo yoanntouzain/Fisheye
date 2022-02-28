@@ -24,7 +24,6 @@ body {
     background: #fff;
     left: 0;
     width: 100%;
-    display: none;
 }
 
 
@@ -53,6 +52,10 @@ body {
             margin-left: 42%;
         }
     }
+}
+.items__content {
+    width: 48.5%;
+    margin: auto;
 }
 
 .item:hover {
@@ -93,7 +96,7 @@ body {
 }
 .carousel .modal-close-btn {
     position: absolute;
-    top: 5%;
+    top: -2%;
     right: 120px;
     margin: 0px;
     background-color: transparent;

@@ -3,7 +3,7 @@ class DetailsPhotographerApps {
     constructor() {
         this.$mediaSection = document.querySelector(".media-section")
         this.$photographHeader = document.querySelector(".photograph-header")
-        this.carousel = document.querySelector("#carousel1")
+        this.carousel = document.querySelector(".carousel__container")
 
         //Pour garder le ID concernant mes photographers
         this.idUrl = document.location.href.substring(document.location.href.lastIndexOf("?id=")+4)
@@ -25,7 +25,7 @@ class DetailsPhotographerApps {
         .forEach(photographers => {
             if (this.idUrl == photographers._id) {
                 const Template = new PhotographerCard(photographers)
-                this.$photographHeader.appendChild(Template.createHeaderPhotographerCard())
+                window.onload = this.$photographHeader.appendChild(Template.createHeaderPhotographerCard())
             }
         })
     }
@@ -49,6 +49,8 @@ class DetailsPhotographerApps {
         })
         this.popularitef.forEach(popularite => {
             this.carousel.appendChild(factoryCarousel(popularite).createMediaCard())
+        })
+        new Carousel(document.querySelector('#carousel1'),{
         })
         clickEvent(this.$mediaSection)
         actionLike(this.popularitef)

@@ -50,7 +50,6 @@ class Carousel {
 
 
         this.setStyle()
-        this.closeWindow()
         this.createNavigation()
 
         //Evenement
@@ -76,30 +75,6 @@ class Carousel {
             item.style.width = ((100 / this.slidesVisible) / ratio) + "%"
         )
     }
-
-
-
-    closeWindow() {
-        this.close = document.createElement( 'bouton' )
-        this.close.setAttribute('type', 'button')
-        this.close.setAttribute('aria-label', 'Fermer')
-        this.close.setAttribute('title', 'Fermer cette fenêtre modale')
-        this.close.setAttribute('data-dimiss', 'dialog')
-        this.close.setAttribute('class', 'modal-close-btn')
-        this.close.setAttribute('alt', 'Croix permettant de fermer le diaporama des images')
-        this.close.setAttribute('onclick', 'closeModalCarousel()')
-
-        this.containerImage =
-            `X`
-            
-        this.root.appendChild(this.close)
-            
-            this.close.innerHTML = this.containerImage
-
-        return this.close
-
-    }
-
 
     createNavigation() {
         let nextButton = document.querySelector('.carousel__next')
@@ -212,7 +187,5 @@ function clickEvent() {
 
 function actionCarousel(e) {
     e.preventDefault()
-    new Carousel(document.querySelector('#carousel1'),{
-    })
     modalsCarousel()
 }

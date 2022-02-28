@@ -127,7 +127,7 @@ body {
 
 .carousel .modal-close-btn {
   position: absolute;
-  top: 5%;
+  top: -2%;
   right: 120px;
   margin: 0px;
   background-color: transparent;

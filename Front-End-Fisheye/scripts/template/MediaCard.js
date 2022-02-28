@@ -17,7 +17,7 @@ class Picture extends MediaCard {
         const $article = document.createElement( 'article' )
 
         const mediaCard = 
-        `<a href="${this._media.image}" alt="lien vers image" class="vignette" aria-haspopup="carousel1" aria-controls="dialog">
+        `<a href="${this._media.image}" alt="lien vers image" class="vignette" aria-haspopup="carousel1" aria-controls="carousel1">
             <div>
                 <div class="containerMedia">
                     <img src="${this._media.image}" alt=" ">
@@ -52,7 +52,7 @@ class Movie extends MediaCard {
         const $article = document.createElement( 'article' )
 
         const mediaCard =
-        `<a href="#" alt="lien vers image" class="vignette" aria-haspopup="carousel1" aria-controls="dialog">
+        `<a href="#" alt="lien vers image" class="vignette" aria-haspopup="carousel1" aria-controls="carousel1">
             <div>
                 <div class="containerMedia">
                     <video controls>
@@ -111,7 +111,7 @@ class LeCarouselMovie extends MediaCard {
         const $containerImage =
             `<div class="item">
                 <div class="items__content">
-                    <video controls="">
+                    <video controls tabindex="0">
                         <source src="${this._media.video}" type="video/mp4">
                     </video>
                 </div>

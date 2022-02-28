@@ -1,30 +1,31 @@
+	//Pour la modal du carousel
+function modalsCarousel() {
+	const triggers2 = document.querySelectorAll('.vignette')/*Le bouton qui ouvre la modal */
 
-function modalsCarousel() {//Pour la modal du carousel
-	const triggers = document.querySelectorAll('[aria-haspopup="carousel1"]')/*Le bouton qui ouvre la modal */
-		console.log(triggers);
-	const focusableElementsArray = [
+	const focusableElementsArray2 = [
 	  'button:not([disabled])',
 	  '[tabindex]:not([tabindex="-1"])',
+	  'video:not([disabled])',
+	  'controls:not([disabled])',
 	]
-	const keyCodes = {
+	const keyCodes2 = {
 	  tab: 9,
 	  enter: 13,
 	  escape: 27,
 	}
-	///////////////Ouverture de la modal FORM
-	const open = function (carousel1) {/*dailog est la div arrière de mon form */
-		const focusableElements = carousel1.querySelectorAll(focusableElementsArray)/*Correspond a tout les élémentd focusable dans la modale */
-		console.log("oui");
+
+	const open2 = function (carousel1) {/*dailog est la div arrière de mon form */
+		
+		const focusableElements = carousel1.querySelectorAll(focusableElementsArray2)/*Correspond a tout les élémentd focusable dans la modale */
 		const firstFocusableElement = focusableElements[0]/*Le bouton X ou la croix qui permet de fermer la modal */
 		const lastFocusableElement = focusableElements[focusableElements.length - 1]/*Permet de séléctionné le bouton valider et que soit soit le dernier focusable*/
-	
+
 		carousel1.setAttribute('aria-hidden', false)
-	
-		// return if no focusable element
+
 		if (!firstFocusableElement) {
 			return
 		}
-	
+			
 		window.setTimeout(() => {
 			firstFocusableElement.focus()
 	
@@ -32,7 +33,7 @@ function modalsCarousel() {//Pour la modal du carousel
 			focusableElements.forEach((focusableElement) => {
 			if (focusableElement.addEventListener) {
 				focusableElement.addEventListener('keydown', (event) => {
-				const tab = event.which === keyCodes.tab
+				const tab = event.which === keyCodes2.tab
 	
 				if (!tab) {
 					return
@@ -54,47 +55,51 @@ function modalsCarousel() {//Pour la modal du carousel
 			})
 		}, 100)
 	}
-	///////////////Fin de l'Ouverture de la modal FORM
-	const close = function (carousel1, trigger) {
+
+	const close2 = function (carousel1, trigger) {
 		carousel1.setAttribute('aria-hidden', true)
 	
 		// restoring focus
 		trigger.focus()
 	}
 	
-	triggers.forEach((trigger) => {
+	triggers2.forEach((trigger) => {
 		const carousel1 = document.getElementById(trigger.getAttribute('aria-controls'))/*ajoute l'attribut aria-controls a la div arrière de la modal */
-		const dismissTriggers = carousel1.querySelectorAll('[data-dismiss]')/*Le bouton de la croix dnas la modal */
+		const dismissTriggers2 = carousel1.querySelectorAll('[data-dismiss]')/*Le bouton de la croix dans la modal */
+		const focusableElements = carousel1.querySelectorAll(focusableElementsArray2)/*Correspond a tout les élémentd focusable dans la modale */
+		const firstFocusableElement = focusableElements[0]/*Le bouton X ou la croix qui permet de fermer la modal */
 	
-		// open dialog
 		trigger.addEventListener('click', (event) => {// au click sur le bouton ouvrir ma modal tu execute la fonction open
-			event.preventDefault()	
-			open(carousel1)
+			event.preventDefault()
+			open2(carousel1)
 		})
 	
 		trigger.addEventListener('keydown', (event) => {// au press de la touche entrer sur le bouton ouvrir ma modal tu execute la fonction open
-			if (event.which === keyCodes.enter) {/*event.which correspond au resultat de la touche actionner de la souris, du keycode, ou charcode*/
+			if (event.which === keyCodes2.enter) {/*event.which correspond au resultat de la touche actionner de la souris, du keycode, ou charcode*/
 			event.preventDefault()
-	
-			open(carousel1)
+			open2(carousel1)
 			}
 		})
-	
-		// close dialog
-		carousel1.addEventListener('keyup', (event) => {// au relachement de la touche entrer sur le bouton X ma modal tu execute la fonction close
-			if (event.which === keyCodes.escape) {
-			close(carousel1, trigger)
+
+		carousel1.addEventListener('keyup', (event) => {// au relachement de la touche echap sur le bouton X ma modal tu execute la fonction close
+			if (event.which === keyCodes2.escape) {
+			close2(carousel1, trigger)
 			}
 		})
-	
-		dismissTriggers.forEach((dismissTrigger) => {// c'est le bouton X
-			const dismissDialog = document.getElementById(dismissTrigger.dataset.dismiss)//on va chercher dans dismissTrigger son dataset et dans dataset on va chercher la valeur de son dismiss qui est dialog
-			console.log(dismissDialog);
+		
+		firstFocusableElement.addEventListener('keydown', (event) => {// au relachement de la touche entrer sur le bouton X ma modal tu execute la fonction close
+			if (event.which === keyCodes2.enter) {
+			close2(carousel1, trigger)
+			}
+		})
+
+		dismissTriggers2.forEach((dismissTrigger) => {// c'est le bouton X
+			const dismissCarousel = document.getElementById(dismissTrigger.dataset.dismiss)//on va chercher dans dismissTrigger son dataset et dans dataset on va chercher la valeur de son dismiss qui est dialog
 	
 			dismissTrigger.addEventListener('click', (event) => {
 			event.preventDefault()
 	
-			close(dismissDialog, trigger)
+			close2(dismissCarousel, trigger)
 			})
 		})
 	})
@@ -113,6 +118,7 @@ function modals() {
 	  'textarea:not([disabled])',
 	  '[tabindex]:not([tabindex="-1"])',
 	]
+
 	const keyCodes = {
 	  tab: 9,
 	  enter: 13,
@@ -163,7 +169,8 @@ function modals() {
 			})
 		}, 100)
 	}
-		///////////////Fin de l'Ouverture de la modal FORM
+
+	///////////////Fin de l'Ouverture de la modal FORM
 	
 	const close = function (dialog, trigger) {
 		dialog.setAttribute('aria-hidden', true)
@@ -173,9 +180,9 @@ function modals() {
 		trigger.focus()
 	}
 	
-		triggers.forEach((trigger) => {
+	triggers.forEach((trigger) => {
 		const dialog = document.getElementById(trigger.getAttribute('aria-controls'))/*ajoute l'attribut aria-controls a la div arrière de la modal */
-		const dismissTriggers = dialog.querySelectorAll('[data-dismiss]')/*Le bouton de la croix dnas la modal */
+		const dismissTriggers = dialog.querySelectorAll('[data-dismiss]')/*Le bouton de la croix dans la modal */
 	
 		// open dialog
 		trigger.addEventListener('click', (event) => {// au click sur le bouton ouvrir ma modal tu execute la fonction open
@@ -192,7 +199,7 @@ function modals() {
 		})
 	
 		// close dialog
-		dialog.addEventListener('keyup', (event) => {// au relachement de la touche entrer sur le bouton X ma modal tu execute la fonction close
+		dialog.addEventListener('keyup', (event) => {// au relachement de la touche echap sur le bouton X ma modal tu execute la fonction close
 			if (event.which === keyCodes.escape) {
 			close(dialog, trigger)
 			}

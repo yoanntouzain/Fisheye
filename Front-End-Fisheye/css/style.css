@@ -499,6 +499,10 @@ form label {
   margin-left: 7%;
 }
 
+.heart:hover {
+  border: 1px solid black;
+}
+
 .like-price {
   position: fixed;
   right: 36px;

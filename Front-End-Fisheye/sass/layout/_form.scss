@@ -144,9 +144,21 @@ form label {
     border-radius: 5px;
     font-size: 1.5em;
 }
+input::placeholder, textarea::placeholder{
+    color:$color-third-secondary;
+    opacity: 0.5;
+}
 
 .contact_button:hover, .contact_button:focus{
     background: $background-focus;
     color: $color-focus ;
     border: 1px solid $color-focus;
+}
+
+#errorFirst, #errorSecond, #errorEmail, #errorMessage {
+    font-size: 1.8em;
+    color: $color-secondary;
+    font-weight: bold;
+    border: 1px solid black;
+    transition: 0.5s
 }

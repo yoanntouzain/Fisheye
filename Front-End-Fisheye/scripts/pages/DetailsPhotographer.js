@@ -4,6 +4,7 @@ class DetailsPhotographerApps {
         this.$mediaSection = document.querySelector(".media-section")
         this.$photographHeader = document.querySelector(".photograph-header")
         this.carousel = document.querySelector(".carousel__container")
+        this.en_tete = document.querySelector('.en_tete')
 
         //Pour garder le ID concernant mes photographers
         this.idUrl = document.location.href.substring(document.location.href.lastIndexOf("?id=")+4)
@@ -25,7 +26,8 @@ class DetailsPhotographerApps {
         .forEach(photographers => {
             if (this.idUrl == photographers._id) {
                 const Template = new PhotographerCard(photographers)
-                window.onload = this.$photographHeader.appendChild(Template.createHeaderPhotographerCard())
+                this.$photographHeader.appendChild(Template.createHeaderPhotographerCard())
+                this.en_tete.appendChild(Template.createForm())
             }
         })
     }

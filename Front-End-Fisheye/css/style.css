@@ -341,10 +341,23 @@ form label {
   font-size: 1.5em;
 }
 
+input::placeholder, textarea::placeholder {
+  color: #901C1C;
+  opacity: 0.5;
+}
+
 .contact_button:hover, .contact_button:focus {
   background: #DB8876;
   color: black;
   border: 1px solid black;
+}
+
+#errorFirst, #errorSecond, #errorEmail, #errorMessage {
+  font-size: 1.8em;
+  color: black;
+  font-weight: bold;
+  border: 1px solid black;
+  transition: 0.5s;
 }
 
 :root {
@@ -412,6 +425,11 @@ form label {
   background: #DB8876;
   color: black;
   border: 1px solid black;
+}
+
+.btn-submit:hover, .btn-submit:focus {
+  background: black;
+  color: white;
 }
 
 .photograph-header .photo img {
@@ -498,8 +516,7 @@ form label {
   stroke-width: 22px;
   margin-left: 7%;
 }
-
-.heart:hover {
+.description .numberLike .heart:hover {
   border: 1px solid black;
 }
 

@@ -28,6 +28,7 @@
     <!--UTILS-->
     <script src="scripts/utils/contactForm.js" async></script>
     <script src="scripts/utils/like.js" async></script>
+    <script src="scripts/utils/form.js" async></script>
 
     <!--Carousel-->
     <script src="scripts/carousel/carousel.js" async></script>
@@ -54,25 +55,29 @@
               <h2 id="dialog-title">Contactez-moi Mini Keel</h2>
               <button class="modal-close-btn" type="button" aria-label="Fermer" title="Fermer cette fenêtre modale" data-dismiss="dialog">X</button>
             </div>
-            <form method="post">
+            <form name="reserve"  method="get" id="myForm" role="form">
               <div class="div_form">
                 <p>
                   <label for="first">Prénom</label>
-                  <input type="text" name="first" id="first">
+                  <input type="text" name="first" id="first" placeholder="César"><br>
+                  <span id="errorFirst"></span><br>
                 </p>
                 <p>
                   <label for="last">Nom</label>
-                  <input type="text" name="last" id="last">
+                  <input type="text" name="last" id="last" placeholder="Lascano"><br>
+                  <span id="errorSecond"></span><br>
                 </p>
                 <p>
                   <label for="email">Email</label><br />
-                  <input type="email" id="email" />
+                  <input type="email" id="email" placeholder="elparadise@gmail.com"/><br>
+                  <span id="errorEmail"></span><br>
                 </p>
                 <p>
                   <label for="message">Votre message</label>
-                  <textarea name="message" id="message"></textarea>
+                  <textarea name="message" id="message" placeholder="Bonjour, j'aimerais avoir un devis pour vos service lors d'un mariage. Cordialement"></textarea><br>
+                  <span id="errorMessage"></span><br>
                 </p>
-                <button type="submit" class="contact_button">Envoyer</button>
+                <button type="submit" class="contact_button btn-submit">Envoyer</button>
               </div>
             </form>
           </div>

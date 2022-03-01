@@ -40,6 +40,15 @@ class PhotographerCard {
             $div0.innerHTML = getUserPage
             return $div0
     }
+    createForm() {
+        const $titre = document.querySelector('#dialog-title')
+
+        const titleForm =
+            `Contactez-moi ${this._photographers.name}`
+            $titre.textContent = titleForm
+            return $titre
+
+    }
 
     LikePriceDay() {
         const $bar = document.createElement('div')

@@ -524,6 +524,7 @@ input::placeholder, textarea::placeholder {
   stroke: #901C1C;
   stroke-width: 22px;
   margin-left: 7%;
+  cursor: pointer;
 }
 .description .numberLike .heart:hover {
   border: 1px solid black;

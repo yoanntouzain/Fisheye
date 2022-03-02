@@ -1,9 +1,5 @@
 	//Pour la modal du formulaire
 function modals() {
-<<<<<<< HEAD
-=======
-	
->>>>>>> 199146d57ae03b49da24fcb060c45bd76a6aa54d
 	const triggers = document.querySelectorAll('[aria-haspopup="dialog"]')/*Le bouton qui ouvre la modal */
 	const doc = document.querySelector('.button_modal')/*La div qui contient le bouton haut dessus*/
 	const focusableElementsArray = [
@@ -75,7 +71,6 @@ function modals() {
 		// restoring focus
 		trigger.focus()
 	}
-<<<<<<< HEAD
 
 		triggers.forEach((trigger) => {
 			const dialog = document.getElementById(trigger.getAttribute('aria-controls'))/*ajoute l'attribut aria-controls a la div arrière de la modal */
@@ -85,41 +80,6 @@ function modals() {
 			trigger.addEventListener('click', (event) => {// au click sur le bouton ouvrir ma modal tu execute la fonction open
 				event.preventDefault()
 				open(dialog)
-=======
-	
-	triggers.forEach((trigger) => {
-		const dialog = document.getElementById(trigger.getAttribute('aria-controls'))/*ajoute l'attribut aria-controls a la div arrière de la modal */
-		const dismissTriggers = dialog.querySelectorAll('[data-dismiss]')/*Le bouton de la croix dans la modal */
-	
-		// open dialog
-		trigger.addEventListener('click', (event) => {// au click sur le bouton ouvrir ma modal tu execute la fonction open
-			event.preventDefault()	
-			open(dialog)
-		})
-	
-		trigger.addEventListener('keydown', (event) => {// au press de la touche entrer sur le bouton ouvrir ma modal tu execute la fonction open
-			if (event.which === keyCodes.enter) {/*event.which correspond au resultat de la touche actionner de la souris, du keycode, ou charcode*/
-			event.preventDefault()
-	
-			open(dialog)
-			}
-		})
-	
-		// close dialog
-		dialog.addEventListener('keyup', (event) => {// au relachement de la touche echap sur le bouton X ma modal tu execute la fonction close
-			if (event.which === keyCodes.escape) {
-			close(dialog, trigger)
-			}
-		})
-	
-		dismissTriggers.forEach((dismissTrigger) => {// c'est le bouton X
-			const dismissDialog = document.getElementById(dismissTrigger.dataset.dismiss)//on va chercher dans dismissTrigger son dataset et dans dataset on va chercher la valeur de son dismiss qui est dialog
-	
-			dismissTrigger.addEventListener('click', (event) => {
-			event.preventDefault()
-	
-			close(dismissDialog, trigger)
->>>>>>> 199146d57ae03b49da24fcb060c45bd76a6aa54d
 			})
 		
 			trigger.addEventListener('keydown', (event) => {// au press de la touche entrer sur le bouton ouvrir ma modal tu execute la fonction open
@@ -150,20 +110,14 @@ function modals() {
 		})
 	
 }
-<<<<<<< HEAD
 	
 	
 	
 	//Pour la modal du carousel
-=======
-
-//Pour la modal du carousel
->>>>>>> 199146d57ae03b49da24fcb060c45bd76a6aa54d
 function modalsCarousel() {
 	const triggers2 = document.querySelectorAll('.vignette')/*Le bouton qui ouvre la modal */
 
 	const focusableElementsArray2 = [
-<<<<<<< HEAD
 	  'button:not([disabled])',
 	  '[tabindex]:not([tabindex="-1"])',
 	  'video:not([disabled])',
@@ -173,17 +127,6 @@ function modalsCarousel() {
 	  tab: 9,
 	  enter: 13,
 	  escape: 27,
-=======
-		'button:not([disabled])',
-		'[tabindex]:not([tabindex="-1"])',
-		'video:not([disabled])',
-		'controls:not([disabled])',
-	]
-	const keyCodes2 = {
-		tab: 9,
-		enter: 13,
-		escape: 27,
->>>>>>> 199146d57ae03b49da24fcb060c45bd76a6aa54d
 	}
 
 	function open2(carousel1) {/*dailog est la div arrière de mon form */

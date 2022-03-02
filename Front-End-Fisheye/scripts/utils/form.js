@@ -1,7 +1,7 @@
 //DOM Elements
 const btnSubmit = document.querySelector(".btn-submit");
-const dialog = document.querySelector("#dialog");
-const doc = document.querySelector(".contact_button")/*La div qui contient le bouton haut dessus*/
+const dialogs = document.querySelector("#dialog");
+const docs = document.querySelector(".contact_button")/*La div qui contient le bouton haut dessus*/
 
 //variable champs
 const myForm = document.getElementById("myForm");
@@ -117,8 +117,8 @@ function scrollForm() {
         && FORMULAIRE.myEmail
         && FORMULAIRE.myMessage === true
         ) {
-		doc.setAttribute('aria-hidden', false)
-		dialog.setAttribute('aria-hidden', true)
+		docs.setAttribute('aria-hidden', false)
+		dialogs.setAttribute('aria-hidden', true)
     }
 };
 

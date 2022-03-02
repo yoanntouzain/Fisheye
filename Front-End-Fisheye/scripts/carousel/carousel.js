@@ -23,7 +23,6 @@ class Carousel {
             slidesVisible: 1,
             loop: false
         }, options)
-        //let children = [].slice.call(element.children)/** Cette variable est égale au premier enfant de l'élément auquel on a fait appel avec une valeur this qui renverra un objet tableau et contiendra une copie du tableau */
         this.isMobile = false
         this.currentItem = 0
         this.moveCallbacks = []
@@ -40,14 +39,6 @@ class Carousel {
                 this.array.push(items)
                 return this.array
         })
-
-        /*this.item = children.map((child) => {
-            let item = this.createDivWithClass('carousel__item')
-            item.appendChild(child)
-            this.container.appendChild(item)
-            return item
-        })*/
-
 
         this.setStyle()
         this.createNavigation()

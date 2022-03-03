@@ -52,8 +52,9 @@ class DetailsPhotographerApps {
         this.popularitef.forEach(popularite => {
             this.carousel.appendChild(factoryCarousel(popularite).createMediaCard())
         })
-        new Carousel(document.querySelector('#carousel1'),{
-        })
+        window.setTimeout(() => {
+            new Carousel(document.querySelector('#carousel1'),{})
+        }, 100)
         actionLike(this.popularitef)
     }
     

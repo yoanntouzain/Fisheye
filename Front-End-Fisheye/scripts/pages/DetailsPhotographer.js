@@ -166,9 +166,6 @@ selectElem.addEventListener('change', function(){
 
         case "title":
             return filtre.SectionPhotographersCardTitle()
-
-        default:
-            return console.log(selectElem.value)
     }
 })
 

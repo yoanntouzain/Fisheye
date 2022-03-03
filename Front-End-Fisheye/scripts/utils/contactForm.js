@@ -130,7 +130,6 @@ window.setTimeout(() => {
 		const focusableElements = carousel1.querySelectorAll(focusableElementsArray2)/*Correspond a tout les élémentd focusable dans la modale */
 		const firstFocusableElement = focusableElements[0]/*Le bouton X ou la croix qui permet de fermer la modal */
 		const lastFocusableElement = focusableElements[focusableElements.length - 1]/*Permet de séléctionné le bouton valider et que soit soit le dernier focusable*/
-		console.log(firstFocusableElement);
 
 		carousel1.setAttribute('aria-hidden', false)
 

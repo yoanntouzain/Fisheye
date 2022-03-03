@@ -53,8 +53,7 @@ function LikesBar() {
         for (let i = 0; i < arrayLike.length; i++) {/*Parcours le tableau tant qu'il y a des éléments*/
             sum += Number(arrayLike[i])/*Chaque élément trouver dans le tableau seront des nombres et seront additioner à sum*/
         }
-        console.log(numberLike);
-        //window.setTimeout(() => {
+
         numberLike.innerHTML = sum/*La somme dans sum seras écrit en html dans la classe numberLikes*/
     }, 100)
 }

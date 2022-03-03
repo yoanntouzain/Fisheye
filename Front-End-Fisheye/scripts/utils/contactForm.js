@@ -110,7 +110,8 @@ window.setTimeout(() => {
 }, 250)
 
 //Pour la modal du carousel
-window.setTimeout(() => {
+function carouselTest() {
+	window.setTimeout(() => {
   
 	const triggers2 = document.querySelectorAll('.vignette')/*Le bouton qui ouvre la modal */
 
@@ -216,3 +217,5 @@ window.setTimeout(() => {
 		})
 	})
 }, 350)
+}
+carouselTest()

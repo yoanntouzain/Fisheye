@@ -1,21 +1,20 @@
 	//Pour la modal du formulaire
-function modals() {
-	
+window.setTimeout(() => {
 	const triggers = document.querySelectorAll('[aria-haspopup="dialog"]')/*Le bouton qui ouvre la modal */
 	const doc = document.querySelector('.button_modal')/*La div qui contient le bouton haut dessus*/
 	const focusableElementsArray = [
-	  '[href]',
-	  'button:not([disabled])',
-	  'input:not([disabled])',
-	  'select:not([disabled])',
-	  'textarea:not([disabled])',
-	  '[tabindex]:not([tabindex="-1"])',
+		'[href]',
+		'button:not([disabled])',
+		'input:not([disabled])',
+		'select:not([disabled])',
+		'textarea:not([disabled])',
+		'[tabindex]:not([tabindex="-1"])',
 	]
 
 	const keyCodes = {
-	  tab: 9,
-	  enter: 13,
-	  escape: 27,
+		tab: 9,
+		enter: 13,
+		escape: 27,
 	}
 	
 	
@@ -108,10 +107,10 @@ function modals() {
 			})
 		})
 	})
-}
+}, 250)
 
 //Pour la modal du carousel
-function modalsCarousel() {
+window.setTimeout(() => {
 	const triggers2 = document.querySelectorAll('.vignette')/*Le bouton qui ouvre la modal */
 
 	const focusableElementsArray2 = [
@@ -216,4 +215,4 @@ function modalsCarousel() {
 			})
 		})
 	})
-}
+}, 350)

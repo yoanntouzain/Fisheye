@@ -31,7 +31,7 @@ class PhotographerCard {
                 <p class="tagline-photographer">${this._photographers.tagline}</p>
             </div>
             <div class="button_modal"><!--Container pour ouvrir la modal-->
-              <button title="Ouvrir cette fenêtre modale" type="button" aria-haspopup="dialog" aria-controls="dialog" class="contact_button" onclick="modals()">Contactez-moi</button>
+              <button id="modal" title="Ouvrir cette fenêtre modale" type="button" aria-haspopup="dialog" aria-controls="dialog" class="contact_button">Contactez-moi</button>
             </div>
             <div class="photo">
                 <img src="${this._photographers.portrait}" alt="image du profil du photographe"/>

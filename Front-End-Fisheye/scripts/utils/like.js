@@ -42,15 +42,19 @@ function actionLike() {
 
 //Pour afficher la somme des likes de la page
 function LikesBar() {
-    let arrayLike = []
-    let numberLike = document.querySelector(".numberLikes")
-    let pLikes = document.querySelectorAll(".likes")
-    let sum = 0
+    window.setTimeout(() => {
+        let arrayLike = []
+        let numberLike = document.querySelector(".numberLikes")
+        let pLikes = document.querySelectorAll(".likes")
+        let sum = 0
 
-    pLikes.forEach(like => {arrayLike.push(like.textContent)})/*Récupère toutes les valeurs HTML dans la classe like et l'ajoute dans le tableau*/
+        pLikes.forEach(like => {arrayLike.push(like.textContent)})/*Récupère toutes les valeurs HTML dans la classe like et l'ajoute dans le tableau*/
 
-    for (let i = 0; i < arrayLike.length; i++) {/*Parcours le tableau tant qu'il y a des éléments*/
-        sum += Number(arrayLike[i])/*Chaque élément trouver dans le tableau seront des nombres et seront additioner à sum*/
-    }
-    numberLike.innerHTML = sum/*La somme dans sum seras écrit en html dans la classe numberLikes*/
+        for (let i = 0; i < arrayLike.length; i++) {/*Parcours le tableau tant qu'il y a des éléments*/
+            sum += Number(arrayLike[i])/*Chaque élément trouver dans le tableau seront des nombres et seront additioner à sum*/
+        }
+        console.log(numberLike);
+        //window.setTimeout(() => {
+        numberLike.innerHTML = sum/*La somme dans sum seras écrit en html dans la classe numberLikes*/
+    }, 100)
 }

@@ -168,15 +168,3 @@ class Carousel {
         return this.isMobile ? 1 : this.options.slidesVisible
     }
 }
-
-
-function clickEvent() {
-    let eventOnClick = document.querySelectorAll('.vignette')
-    eventOnClick.forEach(Vignette => Vignette.addEventListener("click", actionCarousel))
-}
-
-
-function actionCarousel(e) {
-    e.preventDefault()
-    modalsCarousel()
-}

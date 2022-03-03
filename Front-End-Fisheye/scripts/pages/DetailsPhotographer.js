@@ -52,9 +52,9 @@ class DetailsPhotographerApps {
         this.popularitef.forEach(popularite => {
             this.carousel.appendChild(factoryCarousel(popularite).createMediaCard())
         })
-        new Carousel(document.querySelector('#carousel1'),{
-        })
-        clickEvent(this.$mediaSection)
+        window.setTimeout(() => {
+            new Carousel(document.querySelector('#carousel1'),{})
+        }, 100)
         actionLike(this.popularitef)
     }
     
@@ -81,7 +81,6 @@ class DetailsPhotographerApps {
         this.popularitef.forEach(date => {
             this.$mediaSection.appendChild(factory(date).createMediaCard())
         })
-        clickEvent(this.$mediaSection)
         actionLike(this.popularitef)
     }
 
@@ -112,7 +111,6 @@ class DetailsPhotographerApps {
         this.popularitef.forEach(title => {
             this.$mediaSection.appendChild(factory(title).createMediaCard())
         })
-        clickEvent(this.$mediaSection)
         actionLike(this.popularitef)
     }
 

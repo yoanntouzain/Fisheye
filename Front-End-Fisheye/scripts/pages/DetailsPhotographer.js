@@ -81,9 +81,6 @@ class DetailsPhotographerApps {
         this.popularitef.forEach(date => {
             this.$mediaSection.appendChild(factory(date).createMediaCard())
         })
-        window.setTimeout(() => {
-            new Carousel(document.querySelector('#carousel1'),{})
-        }, 100)
         actionLike(this.popularitef)
     }
 
@@ -114,9 +111,6 @@ class DetailsPhotographerApps {
         this.popularitef.forEach(title => {
             this.$mediaSection.appendChild(factory(title).createMediaCard())
         })
-        window.setTimeout(() => {
-            new Carousel(document.querySelector('#carousel1'),{})
-        }, 100)
         actionLike(this.popularitef)
     }
 
@@ -163,7 +157,9 @@ selectElem.addEventListener('change', function(){
     const mediaSection = document.querySelector(".media-section")
     const filtre = new DetailsPhotographerApps()
     mediaSection.innerHTML = ""
+    window.setTimeout(() => {
     new Carousel(document.querySelector('#carousel1'),{})
+    },100)
     carouselTest()
     switch (selectElem.value) {
         case "popularite":

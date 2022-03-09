@@ -17,7 +17,7 @@ const errorEmail = document.getElementById("errorEmail");
 const errorMessage = document.getElementById("errorMessage");
 
 //Mes RegExp
-const textRegExp = /^[a-zA-Z-\s]{2,}$/;
+const textRegExp = /^[a-zA-Z-èéà\s]{2,}$/;
 const textMsgRegExp = /^[a-zA-Z0-9@.€-\s]{2,}$/;
 const RegExpEmail = /[a-zA-Z0-9-]{3,}@[a-z]{4,}.[a-z]{2,}/;
 
@@ -119,6 +119,10 @@ function scrollForm() {
         ) {
 		docs.setAttribute('aria-hidden', false)
 		dialogs.setAttribute('aria-hidden', true)
+        console.log("Prénom = " + myName.value);
+        console.log("Nom = " + mySecond.value);
+        console.log("Mail = " + myEmail.value);
+        console.log("Message = " + myMessage.value);
     }
 };
 

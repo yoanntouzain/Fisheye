@@ -265,9 +265,29 @@ form {
   width: 100%;
 }
 
+.sorter-form {
+  display: flex;
+}
+
+.container-select {
+  position: relative;
+}
+
+.fleche-select {
+  margin: 0px;
+  width: 12%;
+  color: white;
+  font-weight: 600;
+  position: absolute;
+  top: 20px;
+  right: 5px;
+  font-size: 1.2em;
+  background: #901C1C;
+}
+
 form label {
   color: #312E2E;
-  font-size: 1.9em;
+  font-size: 1.2em;
 }
 
 .en_tete {
@@ -279,8 +299,10 @@ form label {
 }
 
 .en_tete h2 {
-  font-size: 4em;
+  font-size: 2em;
   margin: 0px;
+  margin-right: 40%;
+  margin-top: 24px;
 }
 
 .en_tete :nth-child(1) {
@@ -294,11 +316,11 @@ form label {
 .modal-close-btn {
   margin: 24px 0px 24px 35px;
   width: 7%;
-  height: 28%;
+  height: 37%;
   background-color: #db8876;
   color: black;
   border: 0px solid #db8876;
-  font-size: 2.5em;
+  font-size: 2em;
 }
 
 .modal-close-btn:focus, .modal-close-btn:hover {
@@ -336,17 +358,18 @@ form label {
 
 .div_form input {
   width: 99%;
-  height: 68px;
+  height: 54px;
   border: none;
   border-radius: 5px;
-  font-size: 1.5em;
+  font-size: 1.2em;
+  margin-bottom: 4px;
 }
 
 .div_form textarea {
   width: 99%;
-  height: 114px;
+  height: 98px;
   border-radius: 5px;
-  font-size: 1.5em;
+  font-size: 1.2em;
 }
 
 input::placeholder, textarea::placeholder {
@@ -362,10 +385,9 @@ input::placeholder, textarea::placeholder {
 
 #errorFirst, #errorSecond, #errorEmail, #errorMessage {
   display: none;
-  font-size: 1.8em;
+  font-size: 1.1em;
   color: black;
   font-weight: bold;
-  border: 1px solid black;
   transition: 0.5s;
 }
 
@@ -450,6 +472,9 @@ input::placeholder, textarea::placeholder {
 .label-sorter {
   font-size: 1.12em;
   font-weight: 700;
+  margin-right: 20px;
+  margin-top: auto;
+  margin-bottom: auto;
 }
 
 #sorter-select {
@@ -459,7 +484,7 @@ input::placeholder, textarea::placeholder {
   font-size: 1.12em;
   width: 170px;
   border-radius: 5px;
-  padding: 23px 0px 23px 20px;
+  padding: 23px 0px 23px 10px;
 }
 
 .media-section {
@@ -587,10 +612,17 @@ h1 {
   flex-direction: column;
 }
 
-.photographer_section article img {
+.container-portrait {
+  margin: auto;
   height: 200px;
   width: 200px;
+}
+
+.photographer_section article img {
+  height: 100%;
+  width: 100%;
   border-radius: 100%;
+  object-fit: cover;
 }
 
 .photographer_section article h2 {

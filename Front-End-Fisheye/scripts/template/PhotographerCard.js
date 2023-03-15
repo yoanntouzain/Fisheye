@@ -8,10 +8,9 @@ class PhotographerCard {
 
         const photographerCard = 
         `<a href="photographer.html" onclick="location.href=this.href+'?id='+id;return false;" id="${this._photographers.id}" class="photographe-lien lien" alt="Lien vers le photographe">
-            <img 
-                src="${this._photographers.portrait}" 
-                alt="image du profil du photographe"
-            />
+            <div class="container-portrait">
+                <img src="${this._photographers.portrait}" alt="image du profil du photographe"/>
+            </div>
             <h2>${this._photographers.name}</h2>
         </a>
         <p class="location">${this._photographers.city}, ${this._photographers.country}</p>

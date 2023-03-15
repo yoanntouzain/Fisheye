@@ -68,10 +68,29 @@
 form {
     width: 100%;
 }
+.sorter-form {
+    display: flex;
+}
+.container-select {
+    position: relative;
+}
+
+.fleche-select {
+    margin: 0px;
+    width: 12%;
+    color: $color-static;
+    font-weight: 600;
+    position: absolute;
+    top: 20px;
+    right: 5px;
+    font-size: 1.2em;
+    background: $background-static;
+
+}
 
 form label {
     color: #312E2E;
-    font-size: 1.9em;
+    font-size: 1.2em;
 }
 .en_tete {
     display: flex;
@@ -83,8 +102,10 @@ form label {
 
 
 .en_tete h2 {
-    font-size: 4em;
+    font-size: 2em;
     margin: 0px;
+    margin-right: 40%;
+    margin-top: 24px;
 }
 
 .en_tete :nth-child(1){
@@ -98,11 +119,11 @@ form label {
 .modal-close-btn {
     margin: 24px 0px 24px 35px;
     width: 7%;
-    height: 28%;
+    height: 37%;
     background-color: #db8876;
     color: black;   
     border: 0px solid #db8876;
-    font-size: 2.5em;
+    font-size: 2em;
 }
 
 .modal-close-btn:focus, .modal-close-btn:hover {
@@ -141,17 +162,18 @@ form label {
 
 .div_form input {
     width: 99%;
-    height: 68px;
+    height: 54px;
     border: none;
     border-radius: 5px;
-    font-size: 1.5em;
+    font-size: 1.2em;
+        margin-bottom: 4px;
 }
 
 .div_form textarea {
     width: 99%;
-    height: 114px;
+    height: 98px;
     border-radius: 5px;
-    font-size: 1.5em;
+    font-size: 1.2em;
 }
 input::placeholder, textarea::placeholder{
     color:$color-third-secondary;
@@ -166,9 +188,8 @@ input::placeholder, textarea::placeholder{
 
 #errorFirst, #errorSecond, #errorEmail, #errorMessage {
     display: none;
-    font-size: 1.8em;
+    font-size: 1.1em;
     color: $color-secondary;
     font-weight: bold;
-    border: 1px solid black;
     transition: 0.5s
 }

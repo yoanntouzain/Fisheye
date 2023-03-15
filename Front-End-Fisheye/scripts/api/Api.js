@@ -1,6 +1,10 @@
 class Api {
-    constructor() {
-        this._url = "./data/photographers.json"
+    /**
+     * 
+     * @param {string} url 
+     */
+    constructor(url) {
+        this._url = url
     }
 
     async get() {
@@ -26,8 +30,12 @@ class PhotographersApi extends Api {
 }
 
 class Apis {
-    constructor() {
-        this._url = "./data/photographers.json"
+    /**
+     * 
+     * @param {string} url 
+     */
+    constructor(url) {
+        this._url = url
     }
 
     async get() {

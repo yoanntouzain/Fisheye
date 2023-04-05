@@ -107,7 +107,7 @@ window.setTimeout(() => {
 			})
 		})
 	})
-}, 250)
+}, 550)
 
 //Pour la modal du carousel
 function carouselTest() {
